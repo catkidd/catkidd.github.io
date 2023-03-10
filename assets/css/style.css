@@ -14,6 +14,11 @@
     --main-color: #6e57e0;
     --main-color-2: #573ddb;
     --text-color: white;
+    --h1--font: 3.75rem;
+    --h2--font: 3.25rem;
+    --h3--font: 3rem;
+    --h5--font: 2rem;
+    --p-font: 1rem;
 }
 body {
     background-color: var(--bg-color);
@@ -128,14 +133,14 @@ section {
     font-weight: 500;
 }
 .intro__content h1 {
-    font-size: 3.75rem;
+    font-size: var(--h1--font);
     font-weight: 700;
     margin: 0 0 1rem;
     letter-spacing: 2px;
     line-height: 1.1;
 }
 .intro__content h3 {
-    font-size: 3rem;
+    font-size: var(--h3--font);
     font-weight: 700;
     margin: 0 0 3rem;
     letter-spacing: 2px;
@@ -143,7 +148,7 @@ section {
 }
 .intro__content p {
     width: 60%;
-    font-size: 1.25rem;
+    font-size: var(--p-font);
     line-height: 1.8;
     margin-bottom: 3rem;
 }
@@ -170,7 +175,7 @@ input[type="submit"]:hover {
     border: 2px solid var(--main-color-2);
     background-color: transparent;
 }
-header.sticky{
+header.sticky {
     background-color: var(--bg-color-2);
     border-bottom: 1px solid #ffffff1a;
     padding: 1rem 8%;
@@ -183,30 +188,30 @@ header.sticky{
     align-items: center;
     gap: 1.5rem;
 }
-.about__img img{
+.about__img img {
     max-width: 30rem;
     height: auto;
     width: 100%;
     border-radius: 1rem;
 }
-.about__text h2{
-    font-size: 3.25rem;
+.about__text h2 {
+    font-size: var(--h2--font);
     line-height: 1;
 }
-.about__text h5{
-    font-size: 2rem;
+.about__text h5 {
+    font-size: var(--h5--font);
     font-weight: 600;
     line-height: 1;
     margin: 1.75rem 0 3.75rem;
 }
-.about__text p{
-    font-size: 1.25rem;
+.about__text p {
+    font-size: var(--p-font);
     line-height: 1.5;
     margin-bottom: 4rem;
 }
 .about__btn {
     background-color: var(--main-color);
-    color: white;
+    color: var(--text-color);
     letter-spacing: 1px;
     font-size: 1.25rem;
     text-decoration: none;
@@ -227,19 +232,19 @@ header.sticky{
 .service {
     background-color: var(--bg-color-2);
 }
-.service__text{
+.service__text {
     text-align: center;
 }
-.service__text p{
-    font-size: 1rem;
+.service__text p {
+    font-size: var(--p-font);
     margin-bottom: 1rem;
 }
-.service__text h2{
-    font-size: 3.25rem;
+.service__text h2 {
+    font-size: var(--h2--font);
     font-weight: 600;
     line-height: 1;
 }
-.service__box{
+.service__box {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(16rem, auto));
     align-items: center;
@@ -247,27 +252,27 @@ header.sticky{
     margin-top: 5rem;
     text-align: center;
 }
-.service__card{
+.service__card {
     background-color: var(--bg-color);
     padding: 2.2rem 2.8rem;
     border-radius: 1rem;
-    transition: all .45s ease;
+    transition: all 0.45s ease;
 }
-.s__icons i{
+.s__icons i {
     font-size: 3rem;
     margin-bottom: 2.25rem;
 }
-.service__card h5{
-    font-size: 1.5rem;
+.service__card h5 {
+    font-size: var(--h5--font);
     margin-bottom: 2.25rem;
     font-weight: 600;
 }
-.service__card p{
-    font-size: 1rem;
+.service__card p {
+    font-size: var(--p-font);
     line-height: 1.8;
     margin-bottom: 3rem;
 }
-.service__card:hover{
+.service__card:hover {
     transform: translateY(-1rem);
     cursor: pointer;
 }
@@ -289,40 +294,40 @@ header.sticky{
     background-color: transparent;
 }
 /* Message Me section */
-.message{
+.message {
     background-color: var(--bg-color);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     gap: 2.5rem;
 }
-.message__text h2{
-    font-size: 3.25rem;
+.message__text h2 {
+    font-size: var(--h2--font);
     font-weight: 600;
     margin: 2.25rem 0;
     line-height: 1;
 }
-.message__text p{
-    font-size: 1rem;
+.message__text p {
+    font-size: var(--p-font);
     margin-bottom: 2.5rem;
     line-height: 1.8;
 }
-.list{
+.list {
     margin-bottom: 2rem;
 }
 .list li {
     margin-bottom: 1.25rem;
     display: block;
     width: fit-content;
-    transition: all .45s ease;
+    transition: all 0.45s ease;
     font-size: 1rem;
     cursor: pointer;
 }
-.list li i{
+.list li i {
     font-size: 1.25rem;
-    margin: 0 .75rem 0 0;
+    margin: 0 0.75rem 0 0;
 }
-.list li:hover{
+.list li:hover {
     transform: translateX(1rem);
 }
 .social__links {
@@ -349,11 +354,11 @@ header.sticky{
     background-color: transparent;
     box-shadow: 0 0 20px var(--main-color-2);
 }
-.message__form form{
+.message__form form {
     position: relative;
 }
 .message__form form input,
-form textarea{
+form textarea {
     width: 100%;
     padding: 1.25rem;
     margin-bottom: 1.5rem;
@@ -363,12 +368,11 @@ form textarea{
     font-size: 1.25rem;
     border-radius: 1rem;
 }
-.message__form textarea{
+.message__form textarea {
     resize: none;
     height: 15rem;
 }
-.message__form .message__button {
-    width: 40%;
+.message__form .message__btn {
     display: inline-block;
     background-color: var(--main-color);
     color: var(--text-color);
@@ -382,14 +386,14 @@ form textarea{
     transition: 0.45s ease;
     cursor: pointer;
 }
-.message__form .message__button:hover {
+.message__form .message__btn:hover {
     background-color: transparent;
     border: 2px solid var(--main-color-2);
     transition: 0.4s ease;
     transform: scale(1.1);
 }
 /* Footer */
-.foo__end{
+.foo__end {
     padding: 1.25rem 8%;
     display: flex;
     flex-wrap: wrap;
@@ -398,21 +402,21 @@ form textarea{
     gap: 2rem;
     background: var(--bg-color-2);
 }
-.foo__end-text p{
-    font-size: 1rem;
+.foo__end-text p {
+    font-size: var(--p-font);
 }
-.top a{
+.top a {
     display: block;
     color: var(--text-color);
     font-size: 1.25rem;
 }
-.top a i{
-background: var(--main-color);
-padding: 1rem;
-border: 2px solid transparent;
-border-radius: 50%;
+.top a i {
+    background: var(--main-color);
+    padding: 1rem;
+    border: 2px solid transparent;
+    border-radius: 50%;
 }
-.top a i:hover{
+.top a i:hover {
     transition: 0.4s ease;
     box-shadow: 0 0 20px var(--main-color-2);
 }
@@ -438,5 +442,92 @@ border-radius: 50%;
     to {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+@media (max-width: 1480px) {
+    header {
+        padding: 1.75rem 2.5%;
+        transition: 0.1s;
+    }
+    header.sticky {
+        padding: 1.75rem 2.5%;
+        transition: 0.1s;
+    }
+    section {
+        padding: 110px 3% 60px;
+        transition: 0.1s;
+    }
+    .foo__end {
+        padding: 1.75rem 2.5%;
+        transition: 0.1s;
+    }
+}
+
+@media (max-width: 1100px) {
+    :root {
+        --h1--font: 3rem;
+        --h2--font: 2.5rem;
+        --h3--font: 2rem;
+        --h5--font: 1rem;
+        --p-font: 0.75rem;
+        transition: 0.1s;
+    }
+    .one,
+    .two {
+        font-size: 1rem;
+    }
+    .home {
+        height: 87vh;
+    }
+}
+@media (max-width: 920px) {
+    .about__me {
+        grid-template-columns: 1fr;
+    }
+    .about__img {
+        text-align: center;
+        order: 2;
+    }
+    .about__img img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+    }
+    .message {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 840px) {
+    #menu-icon {
+        display: block;
+    }
+    .menu__items {
+        position: absolute;
+        top: -1000%;
+        right: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        background: var(--bg-color-2);
+        text-align: left;
+        transition: all 0.45s ease;
+    }
+    .menu__items li a {
+        display: block;
+        margin: 2rem;
+        font-size: 1.5rem;
+        transition: all 0.45s ease;
+        color: var(--text-color);
+    }
+    .menu__items li a:hover {
+        color: var(--main-color);
+    }
+    .menu__items li a.active {
+        color: var(--main-color);
+    }
+    .menu__items.open {
+        top: 100%;
     }
 }
