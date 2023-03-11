@@ -17,3 +17,14 @@ window.onscroll = () => {
     menuIcon.classList = isOpen ? "fa-solid fa-bars" : "fa-solid fa-xmark";
     menuItems.classList.remove("open");
 };
+
+document.addEventListener("DOMContentLoaded", function() {
+    let typed = new Typed(".auto-type", {
+        strings: ["Developer", "Designer"],
+        typeSpeed: 150,
+        backSpeed: 150,
+        backDelay: 1000,
+        loop: true,
+    });
+});
+
