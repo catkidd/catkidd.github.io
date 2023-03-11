@@ -24,6 +24,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
 }
+
 /* header section */
 header {
     position: fixed;
@@ -105,7 +106,7 @@ section {
     position: relative;
     height: 100vh;
     width: 100%;
-    background-image: url(../../assets/img/istockphoto-1341437653-1024x1024-transformed-vanila.jpeg);
+    background-image: url(../../assets/img/istockphoto-1341437653-1024x1024-transformed-mercury.jpeg);
     background-size: cover;
     background-position: center;
     display: flex;
