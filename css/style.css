@@ -1,0 +1,289 @@
+:root {
+  --bg-color: #0a0a0a;
+  --text-color: #cbd5e1; /* slate-300 */
+  --text-dim: #94a3b8; /* slate-400 */
+  --text-bright: #f1f5f9; /* slate-100 */
+  --accent-color: #10b981; /* emerald-500 */
+  --accent-hover: #059669; /* emerald-600 */
+  --card-bg: #111111;
+  --card-border: #1e293b; /* slate-800 */
+  --nav-bg: rgba(10, 10, 10, 0.7);
+  --selection-bg: rgba(16, 185, 129, 0.3);
+  --footer-bg: #050505;
+  --code-bg: #1e293b;
+  --code-text: #fbbf24; /* amber-400 */
+  --btt-tint: rgba(255, 255, 255, 0.03);
+}
+
+/* Sophisticated Light Mode */
+.light-mode {
+  --bg-color: #F8F9FA; /* Off-white paper */
+  --text-color: #475569; /* slate-600 */
+  --text-dim: #64748b; /* slate-500 */
+  --text-bright: #1A1A1B; /* Charcoal */
+  --accent-color: #059669; /* Emerald-600 */
+  --accent-hover: #047857; /* Emerald-700 */
+  --card-bg: #ffffff;
+  --card-border: #E5E7EB; /* Subtle gray */
+  --nav-bg: rgba(248, 249, 250, 0.8);
+  --selection-bg: rgba(5, 150, 105, 0.1);
+  --footer-bg: #F8F9FA;
+  --code-bg: #F1F5F9;
+  --code-text: #D97706; /* Amber/Burned Orange */
+  --btt-tint: rgba(0, 0, 0, 0.05);
+}
+
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  width: 0%;
+  z-index: 100;
+  transition: width 0.1s ease-out;
+}
+
+html {
+  scroll-padding-top: 0.5rem;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+.hero-parallax {
+  background-image: linear-gradient(to bottom right, var(--bg-color), var(--footer-bg));
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+#particle-canvas {
+  opacity: 0.4; /* Subtle background presence */
+}
+
+/* Page Fade-in */
+body {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-hover);
+}
+
+/* Animations */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.cursor {
+  display: inline-block;
+  width: 10px;
+  height: 1.5em;
+  background-color: var(--accent-color);
+  vertical-align: middle;
+  margin-left: 5px;
+  animation: blink 1s step-end infinite;
+}
+
+/* Project Card Glow */
+.project-card {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--card-border);
+  z-index: 10;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 20%,
+    var(--accent-color) 50%,
+    transparent 80%
+  );
+  transform: translate(-50%, -50%) rotate(0deg);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -2;
+}
+
+.project-card::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background: var(--card-bg);
+  border-radius: inherit;
+  z-index: -1;
+  transition: background-color 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -20px rgba(16, 185, 129, 0.2);
+  border-color: transparent;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+  animation: border-rotate-continuous 3s linear infinite;
+}
+
+@keyframes border-rotate-continuous {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Mobile Menu Transition */
+#mobile-menu {
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(100%);
+}
+
+#mobile-menu.active {
+  transform: translateX(0);
+}
+
+/* Glassmorphism */
+.glass {
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--card-border);
+}
+
+/* Hero Section Terminal Effect */
+.terminal-text {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Back to Top ('RETURN') */
+#back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: var(--btt-tint);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--accent-color);
+  padding: 0.8rem 1.2rem;
+  border-radius: 4px;
+  border: 1px solid var(--card-border);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 40;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+#back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#back-to-top:hover {
+  background-color: var(--accent-color);
+  color: white;
+  transform: translateY(-5px) scale(1.1);
+  border-color: var(--accent-color);
+  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+}
+
+/* Light Mode Overrides for Tailwind Classes */
+.light-mode .text-slate-100,
+.light-mode .text-slate-200 { color: var(--text-bright); }
+.light-mode .text-slate-300,
+.light-mode .text-slate-400 { color: var(--text-color); }
+.light-mode .text-slate-500,
+.light-mode .text-slate-600 { color: var(--text-dim); }
+
+.light-mode .bg-slate-900,
+.light-mode .bg-\[\#111\] { background-color: var(--card-bg); }
+
+.light-mode .border-slate-800,
+.light-mode .border-white\/5 { border-color: var(--card-border); }
+
+/* Logo Inversion in Light Mode */
+.light-mode nav img {
+  filter: invert(0.8) brightness(0.2); /* Adjust to make it dark against light bg */
+}
+
+/* Hero Tagline fix for Light Mode */
+.light-mode .text-slate-400 { color: var(--text-dim); }
+
+/* Global Monospace Base */
+.font-mono {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+/* Specific Technical Labels / Code Blocks */
+.tech-log, 
+code {
+  background-color: var(--code-bg);
+  color: var(--code-text);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+#progress-bar {
+  background-color: var(--accent-color);
+}
+
+/* Animated Nav Underline */
+.nav-link-animated {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link-animated::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--accent-color);
+  transition: width 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+.nav-link-animated:hover::after {
+  width: 100%;
+}
