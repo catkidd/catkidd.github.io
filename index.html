@@ -1,194 +1,376 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dipesh Parajuli | Professional Minimalist Portfolio</title>
+    
+    <!-- SEO & Social Sharing -->
+    <meta name="description" content="Professional Full Stack Developer portfolio of Dipesh Parajuli, specializing in high-performance web experiences and UI/UX enthusiasts.">
+    <meta property="og:title" content="Dipesh Parajuli | Professional Portfolio">
+    <meta property="og:description" content="Explore my projects, experience, and tech stack. Built with modern web standards and high-end aesthetics.">
+    <meta property="og:image" content="assets/images/bg.webp">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-        <!-- GOOGLE FONTS -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
-            rel="stylesheet" />
-        <!-- Font Awesome -->
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-            integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer" />
-        <!-- CSS LINK -->
-        <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- Tailwind (Production Build) -->
+    <!-- After running the build command, link to your compiled CSS: -->
+    <!-- <link rel="stylesheet" href="tailwind.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                        },
+                        slate: {
+                            50: '#F8F9FA',
+                            900: '#1A1A1B',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-50 dark:bg-[#0a0a0a] text-slate-600 dark:text-slate-300 transition-colors duration-300">
 
-        <title>Dipesh Parajuli</title>
-    </head>
-    <body>
-        <!-- HEADER -->
-        <header>
-            <a href="#" class="logo">DIP<span>ESH.</span></a>
-            <ul class="menu__items">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#service">Services</a></li>
-                <li><a href="#message">Message</a></li>
-            </ul>
-            <i class="fa-solid fa-bars" id="menu-icon"></i>
-        </header>
+    <!-- Reading Progress Bar -->
+    <div id="progress-bar"></div>
 
-        <!-- MAIN -->
-        <main>
-            <!-- Home section -->
-            <section class="home" id="home">
-                <div class="intro__content">
-                    <div class="slide">
-                        <span class="one">Hello</span>
-                        <span class="two">My name is</span>
-                    </div>
-                    <h1>Dipesh <span>Parajuli</span></h1>
-                    <h3>Web <span class="auto-type"></span></h3>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="#hero" class="flex items-center">
+                <img src="assets/images/logo-light.svg" alt="Portfolio Logo" id="nav-logo" class="h-8 md:h-10 w-auto">
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium uppercase tracking-widest text-slate-600 dark:text-slate-300">
+                <a href="#about" class="hover:text-emerald-500 transition-colors nav-link-animated">About</a>
+                <a href="#projects" class="hover:text-emerald-500 transition-colors nav-link-animated">Projects</a>
+                <a href="#experience" class="hover:text-emerald-500 transition-colors nav-link-animated">Experience</a>
+                <a href="#contact" class="hover:text-emerald-500 transition-colors nav-link-animated">Contact</a>
+                <button id="theme-toggle" class="font-mono text-[12px] border border-emerald-500/30 px-3 py-1 rounded hover:bg-emerald-500/10 transition-all text-emerald-500" aria-label="Toggle light/dark mode">
+                    [ MODE: DARK ]
+                </button>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button id="menu-btn" class="md:hidden text-slate-600 dark:text-slate-300" aria-label="Open navigation menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Side Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-slate-50 dark:bg-[#0a0a0a] z-[60] flex flex-col items-center justify-center space-y-8 text-2xl" aria-hidden="true">
+        <button id="close-btn" class="absolute top-6 right-6 text-slate-600 dark:text-slate-300" aria-label="Close navigation menu">
+            <i data-lucide="x"></i>
+        </button>
+        <a href="#about" class="mobile-link hover:text-emerald-500 text-slate-600 dark:text-slate-300">About</a>
+        <a href="#projects" class="mobile-link hover:text-emerald-500 text-slate-600 dark:text-slate-300">Projects</a>
+        <a href="#experience" class="mobile-link hover:text-emerald-500 text-slate-600 dark:text-slate-300">Experience</a>
+        <a href="#contact" class="mobile-link hover:text-emerald-500 text-slate-600 dark:text-slate-300">Contact</a>
+        <button id="mobile-theme-toggle" class="font-mono text-sm border border-emerald-500/30 px-6 py-2 rounded text-emerald-500 mt-4">
+            [ MODE: DARK ]
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-parallax flex items-center justify-center relative overflow-hidden">
+        <canvas id="particle-canvas" class="absolute inset-0 w-full h-full z-0 pointer-events-auto"></canvas>
+        <div class="max-w-6xl mx-auto px-6 w-full relative z-10 transition-transform duration-500 hover:scale-[1.01]">
+            <p class="text-emerald-500 font-mono mb-4">Hi, my name is</p>
+            <h1 class="text-5xl md:text-7xl font-bold text-slate-100 mb-6 tracking-tight">
+                Dipesh Parajuli.
+            </h1>
+            <h2 class="text-3xl md:text-5xl font-semibold text-slate-400 mb-8 leading-tight">
+                I build digital experiences for the web.
+            </h2>
+            <div class="flex items-center space-x-2 text-emerald-500 font-mono text-lg md:text-xl">
+                <span>$</span>
+                <span class="tagline">Full Stack Developer & UI Enthusiast</span>
+                <span class="cursor"></span>
+            </div>
+        </div>
+    </section>
+
+    <main class="max-w-6xl mx-auto px-6">
+
+        <!-- About Section -->
+        <section id="about" class="py-24 reveal">
+            <div class="flex items-center space-x-4 mb-8">
+                <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">01. About Me</h3>
+                <div class="h-[1px] bg-slate-200 dark:bg-slate-800 flex-grow"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="md:col-span-2 space-y-4 text-slate-600 dark:text-slate-400">
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi atque harum
-                        sapiente.
+                        Hello! I'm a passionate developer who enjoys creating things that live on the internet. My journey in web development started back in 2018 when I decided to try editing custom Tumblr themes — turns out hacking together a simple reblog button taught me a lot about HTML & CSS!
                     </p>
-                    <div class="button">
-                        <input type="submit" value="Let's Start" />
-                    </div>
-                </div>
-            </section>
-
-            <!-- ABOUT ME section -->
-            <section class="about__me" id="about">
-                <div class="about__img">
-                    <img src="./assets/img/Fotor_AI__mercury-copy.png" alt="profile picture" />
-                </div>
-                <div class="about__text">
-                    <h2>About <span>me</span></h2>
-                    <h3>Web <span>developer</span></h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis maxime eius
-                        natus impedit, quia, perspiciatis earum distinctio quibusdam temporibus
-                        ullam, magnam necessitatibus labore! Facilis officiis voluptatum unde
-                        consequuntur, eligendi ex?
+                        Fast-forward to today, and I’ve had the privilege of working at an advertising agency, a start-up, and a large corporation. My main focus these days is building accessible, inclusive products and digital experiences.
                     </p>
-                    <button type="submit" class="about__btn">Let's Talk</button>
-                </div>
-            </section>
-
-            <!-- SERVICES section -->
-            <section class="service" id="service">
-                <div class="service__text">
-                    <p>What are you looking?</p>
-                    <h2>My <span>Services</span></h2>
-                </div>
-                <div class="service__box">
-                    <div class="service__card">
-                        <div class="s__icons">
-                            <i class="fa-solid fa-code"></i>
+                    <p>Here are a few technologies I’ve been working with recently:</p>
+                    <div id="tech-stack" class="grid grid-cols-2 sm:grid-cols-3 gap-3 font-mono text-xs">
+                        <div class="flex items-center space-x-2 px-3 py-2 bg-slate-100 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded hover:border-emerald-500/50 hover:bg-emerald-500/5 transition-all group">
+                            <span class="text-emerald-600 dark:text-emerald-500 group-hover:translate-x-1 transition-transform">▹</span>
+                            <span class="text-slate-700 dark:text-slate-300">JavaScript</span>
                         </div>
-                        <h5>Web Development</h5>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-                            debitis eos cumque. Rem ad, nobis numquam a illum id vero.
-                        </p>
-                        <button type="submit" class="service__btn">Read More</button>
-                    </div>
-                    <div class="service__card">
-                        <div class="s__icons">
-                            <i class="fa-regular fa-user"></i>
+                        <div class="flex items-center space-x-2 px-3 py-2 bg-slate-100 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded hover:border-emerald-500/50 hover:bg-emerald-500/5 transition-all group">
+                            <span class="text-emerald-600 dark:text-emerald-500 group-hover:translate-x-1 transition-transform">▹</span>
+                            <span class="text-slate-700 dark:text-slate-300">React</span>
                         </div>
-                        <h5>Web Design</h5>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-                            debitis eos cumque. Rem ad, nobis numquam a illum id vero.
-                        </p>
-                        <button type="submit" class="service__btn">Read More</button>
-                    </div>
-                    <div class="service__card">
-                        <div class="s__icons">
-                            <i class="fa-regular fa-bell"></i>
+                        <div class="flex items-center space-x-2 px-3 py-2 bg-slate-100 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded hover:border-emerald-500/50 hover:bg-emerald-500/5 transition-all group">
+                            <span class="text-emerald-600 dark:text-emerald-500 group-hover:translate-x-1 transition-transform">▹</span>
+                            <span class="text-slate-700 dark:text-slate-300">Node.js</span>
                         </div>
-                        <h5>Creative Design</h5>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-                            debitis eos cumque. Rem ad, nobis numquam a illum id vero.
-                        </p>
-                        <button type="submit" class="service__btn">Read More</button>
+                        <div class="flex items-center space-x-2 px-3 py-2 bg-slate-100 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded hover:border-emerald-500/50 hover:bg-emerald-500/5 transition-all group">
+                            <span class="text-emerald-600 dark:text-emerald-500 group-hover:translate-x-1 transition-transform">▹</span>
+                            <span class="text-slate-700 dark:text-slate-300">Tailwind</span>
+                        </div>
+                        <div class="flex items-center space-x-2 px-3 py-2 bg-slate-100 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded hover:border-emerald-500/50 hover:bg-emerald-500/5 transition-all group">
+                            <span class="text-emerald-600 dark:text-emerald-500 group-hover:translate-x-1 transition-transform">▹</span>
+                            <span class="text-slate-700 dark:text-slate-300">TypeScript</span>
+                        </div>
+                        <div class="flex items-center space-x-2 px-3 py-2 bg-slate-100 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded hover:border-emerald-500/50 hover:bg-emerald-500/5 transition-all group">
+                            <span class="text-emerald-600 dark:text-emerald-500 group-hover:translate-x-1 transition-transform">▹</span>
+                            <span class="text-slate-700 dark:text-slate-300">Next.js</span>
+                        </div>
                     </div>
                 </div>
-            </section>
+                <div class="relative group">
+                    <div class="w-full aspect-square border-2 border-emerald-600 dark:border-emerald-500 rounded-lg absolute top-4 left-4 -z-10 group-hover:top-2 group-hover:left-2 transition-all"></div>
+                    <div class="w-full aspect-square bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden grayscale hover:grayscale-0 transition-all">
+                        <!-- Placeholder Image -->
+                        <div class="w-full h-full flex items-center justify-center border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900">
+                             <i data-lucide="user" class="w-20 h-20 text-slate-300 dark:text-slate-700"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <!-- Message me -->
-            <section class="message" id="message">
-                <div class="message__text">
-                    <h2>Message <span>Me!</span></h2>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                    <div class="list">
-                        <li><i class="fa-solid fa-mobile-screen-button"></i>+977 9843-812362</li>
-                        <li><i class="fa-solid fa-at"></i>scorpdipesh@gmail.com</li>
-                        <li><i class="fa-solid fa-location-dot"></i>Dhulikhel-6, Kavre, Nepal</li>
+        <!-- Projects Section -->
+        <section id="projects" class="py-24">
+            <div class="flex items-center space-x-4 mb-12 reveal">
+                <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">02. Selected Work</h3>
+                <div class="h-[1px] bg-slate-200 dark:bg-slate-800 flex-grow"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 reveal-stagger">
+                <!-- Project Card 1 -->
+                <div class="project-card bg-white dark:bg-[#111] p-8 rounded-lg group border border-slate-200 dark:border-slate-800 transition-all reveal">
+                    <div class="flex justify-between items-center mb-6">
+                        <i data-lucide="folder" class="w-10 h-10 text-emerald-600 dark:text-emerald-500"></i>
+                        <div class="flex space-x-4 text-slate-400">
+                            <a href="https://github.com/dipeshparajuli" target="_blank" class="hover:text-emerald-600 dark:hover:text-emerald-500" aria-label="View Code on GitHub"><i data-lucide="github"></i></a>
+                            <a href="#" target="_blank" class="hover:text-emerald-600 dark:hover:text-emerald-500" aria-label="View Live Demo"><i data-lucide="external-link"></i></a>
+                        </div>
                     </div>
-                    <div class="social__links">
-                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="message__form">
-                    <form action="#" method="post" autocomplete="off">
-                        <label for="username" hidden>Username</label>
-                        <input
-                            type="text"
-                            name="username"
-                            id="username"
-                            placeholder="Your Name"
-                            required />
-                        <label for="email" hidden>Email</label>
-                        <input
-                            type="email"
-                            name="email"
-                            id="email"
-                            placeholder="Your Email"
-                            required />
-                        <label for="phnumber" hidden>Mobile Number</label>
-                        <input
-                            type="number"
-                            name="phnumber"
-                            id="phnumber"
-                            placeholder="Your Mobile Number"
-                            required />
-                        <label for="textmsg" hidden>Message</label>
-                        <textarea
-                            name="textmsg"
-                            id="textmsg"
-                            cols="30"
-                            rows="10"
-                            placeholder="How can I help you?"
-                            required></textarea>
-                        <button type="submit" class="message__btn">Send Message</button>
-                    </form>
-                </div>
-            </section>
-        </main>
-
-        <!-- FOOTER -->
-        <footer>
-            <section class="foo__end">
-                <div class="foo__end-text">
-                    <p>
-                        &copy Copyright 2023 by dipeshparajuli.com.np
-                        <span style="font-size: 1.75rem">|</span> All Rights Reserved.
+                    <h4 class="text-xl font-bold text-slate-900 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-500 transition-colors mb-2">E-Commerce Platform</h4>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-6 font-light">
+                        A full-stack e-commerce solution with real-time inventory management and secure payments.
                     </p>
+                    <div class="flex flex-wrap gap-3 font-mono text-xs text-slate-500 mb-6">
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>Stripe</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-500 hover:text-emerald-500 transition-colors nav-link-animated">Live Demo</a>
+                        <a href="#" class="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">View Code</a>
+                    </div>
                 </div>
-                <div class="top">
-                    <a href="#home"><i class="fa-solid fa-arrow-up"></i></a>
-                </div>
-            </section>
-        </footer>
 
-        <!-- JAVASCRIPT -->
-        <!-- Typed js for auto typing effect -->
-        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-        <script src="./assets/js/main.js"></script>
-    </body>
+                <!-- Project Card 2 -->
+                <div class="project-card bg-white dark:bg-[#111] p-8 rounded-lg group border border-slate-200 dark:border-slate-800 transition-all reveal">
+                    <div class="flex justify-between items-center mb-6">
+                        <i data-lucide="folder" class="w-10 h-10 text-emerald-600 dark:text-emerald-500"></i>
+                        <div class="flex space-x-4 text-slate-400">
+                            <a href="https://github.com/dipeshparajuli" target="_blank" class="hover:text-emerald-600 dark:hover:text-emerald-500" aria-label="View Code on GitHub"><i data-lucide="github"></i></a>
+                            <a href="#" target="_blank" class="hover:text-emerald-600 dark:hover:text-emerald-500" aria-label="View Live Demo"><i data-lucide="external-link"></i></a>
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-500 transition-colors mb-2">AI Task Manager</h4>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-6 font-light">
+                        Task management app with smart prioritization using OpenAI GPT-4 for schedule optimizations.
+                    </p>
+                    <div class="flex flex-wrap gap-3 font-mono text-xs text-slate-500 mb-6">
+                        <span>Next.js</span>
+                        <span>OpenAI</span>
+                        <span>Tailwind</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-500 hover:text-emerald-500 transition-colors nav-link-animated">Live Demo</a>
+                        <a href="#" class="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">View Code</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-24">
+            <div class="flex items-center space-x-4 mb-12 reveal">
+                <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">03. Professional Experience</h3>
+                <div class="h-[1px] bg-slate-200 dark:bg-slate-800 flex-grow"></div>
+            </div>
+            
+            <div class="space-y-12 reveal-stagger">
+                <!-- Job 1 -->
+                <div class="flex flex-col md:flex-row md:space-x-8 reveal">
+                    <div class="mb-4 md:mb-0 md:w-32 flex-shrink-0">
+                        <span class="text-emerald-600 dark:text-emerald-500 font-mono text-sm">2022 — Present</span>
+                    </div>
+                    <div class="flex-grow">
+                        <h4 class="text-xl font-bold text-slate-900 dark:text-slate-100">Senior Frontend Engineer @ TechFlow</h4>
+                        <p class="text-sm text-slate-500 mb-4">San Francisco, CA</p>
+                        <ul class="space-y-3 text-slate-600 dark:text-slate-400 text-sm">
+                            <li class="flex items-start">
+                                <span class="text-emerald-600 dark:text-emerald-500 mr-3 mt-1 text-xs">▹</span>
+                                <span>Lead the frontend development of the core SaaS platform, improving performance by 40% through code splitting and memoization.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-emerald-600 dark:text-emerald-500 mr-3 mt-1 text-xs">▹</span>
+                                <span>Architected a shared component library used across 5 internal products, ensuring design consistency and reducing dev time.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-emerald-600 dark:text-emerald-500 mr-3 mt-1 text-xs">▹</span>
+                                <span>Mentor junior developers and conduct weekly technical design reviews for major feature releases.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="flex flex-col md:flex-row md:space-x-8 reveal">
+                    <div class="mb-4 md:mb-0 md:w-32 flex-shrink-0">
+                        <span class="text-emerald-600 dark:text-emerald-500 font-mono text-sm">2020 — 2022</span>
+                    </div>
+                    <div class="flex-grow">
+                        <h4 class="text-xl font-bold text-slate-900 dark:text-slate-100">Frontend Developer @ CreativeWave</h4>
+                        <p class="text-sm text-slate-500 mb-4">Remote</p>
+                        <ul class="space-y-3 text-slate-600 dark:text-slate-400 text-sm">
+                            <li class="flex items-start">
+                                <span class="text-emerald-600 dark:text-emerald-500 mr-3 mt-1 text-xs">▹</span>
+                                <span>Developed award-winning marketing sites for Fortune 500 clients using modern animation libraries like GSAP and Framer Motion.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-emerald-600 dark:text-emerald-500 mr-3 mt-1 text-xs">▹</span>
+                                <span>Collaborated closely with designers to bridge the gap between Figma mocks and pixel-perfect production code.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-32 max-w-2xl mx-auto reveal">
+            <div class="text-center mb-12">
+                <p class="text-emerald-600 dark:text-emerald-500 font-mono mb-4 text-sm uppercase tracking-widest">04. What's Next?</p>
+                <h3 class="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-6">Get In Touch</h3>
+                <p class="text-slate-600 dark:text-slate-400">
+                    I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                </p>
+            </div>
+            
+            <form id="contact-form" class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block text-sm font-mono mb-2">Name</label>
+                        <input type="text" id="name" required class="w-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-md px-4 py-3 text-slate-900 dark:text-slate-200 focus:outline-none focus:border-emerald-500 transition-colors">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-mono mb-2">Email</label>
+                        <input type="email" id="email" required class="w-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-md px-4 py-3 text-slate-900 dark:text-slate-200 focus:outline-none focus:border-emerald-500 transition-colors">
+                    </div>
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-mono mb-2">Message</label>
+                    <textarea id="message" rows="5" required class="w-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-md px-4 py-3 text-slate-900 dark:text-slate-200 focus:outline-none focus:border-emerald-500 transition-colors"></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="px-10 py-4 border border-emerald-600 dark:border-emerald-500 text-emerald-600 dark:text-emerald-500 rounded-md hover:bg-emerald-500/10 transition-colors font-mono tracking-widest text-sm">
+                        Send Message
+                    </button>
+                    <p id="form-status" class="mt-4 text-sm font-mono hidden"></p>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- Back to Top Button ('RETURN') -->
+    <a href="#hero" id="back-to-top" class="font-mono text-[12px] tracking-[0.2em] font-bold" aria-label="Back to top">
+        RETURN 0;
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 dark:bg-[#050505] pt-24 pb-12 border-t border-slate-200 dark:border-white/5 px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 items-start text-center md:text-left">
+            <!-- Left: Brand Info -->
+            <div class="space-y-4">
+                <h4 class="text-slate-900 dark:text-slate-100 font-bold tracking-tight text-xl">Dipesh Parajuli</h4>
+                <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-xs mx-auto md:mx-0">
+                    Compiling a digital time capsule. Translating raw experiences into a cleaner architecture, documenting the journey from <span class="tech-log">$v1.0$</span> to today.
+                </p>
+            </div>
+
+            <!-- Center: Navigation -->
+            <div class="flex flex-col space-y-4 items-center">
+                <span class="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-600 mb-2">Navigation</span>
+                <nav class="flex flex-col space-y-2 text-sm text-slate-600 dark:text-slate-400 font-medium">
+                    <a href="#about" class="hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors">About Me</a>
+                    <a href="#projects" class="hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors">Project Gallery</a>
+                    <a href="#experience" class="hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors">Experience</a>
+                    <a href="#contact" class="hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors">Get In Touch</a>
+                </nav>
+            </div>
+
+            <!-- Right: Social Connections -->
+            <div class="flex flex-col items-center md:items-end space-y-6">
+                <span class="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-600">Connect</span>
+                <div class="flex space-x-6">
+                    <a href="https://github.com/dipeshparajuli" target="_blank" class="text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors" aria-label="GitHub Profile">
+                        <i data-lucide="github" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" target="_blank" class="text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors" aria-label="LinkedIn Profile">
+                        <i data-lucide="linkedin" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" target="_blank" class="text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors" aria-label="Twitter Profile">
+                        <i data-lucide="twitter" class="w-6 h-6"></i>
+                    </a>
+                </div>
+                <div class="text-[10px] font-mono text-slate-700 dark:text-slate-500 uppercase tracking-widest mt-4">
+                    &copy; 2026 • Based in Nepal
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="max-w-6xl mx-auto mt-16 pt-8 border-t border-slate-200 dark:border-white/5 text-center flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-[10px] font-mono text-slate-700 dark:text-slate-500 uppercase tracking-[0.3em]">
+            <p>
+                Crafted with precision & passion
+            </p>
+            <a href="privacy.html" class="hover:text-emerald-500 transition-colors nav-link-animated">Privacy Policy</a>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
 </html>
