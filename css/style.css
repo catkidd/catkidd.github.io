@@ -287,3 +287,17 @@ code {
 .nav-link-animated:hover::after {
   width: 100%;
 }
+
+/* Contact Form Enhancements */
+input:focus, 
+textarea:focus {
+  border: 1px solid var(--accent-color) !important;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+  outline: none;
+}
+
+.btn-loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+  pointer-events: none;
+}

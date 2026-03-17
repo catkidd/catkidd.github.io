@@ -24,7 +24,13 @@ A state-of-the-art, senior-level developer portfolio built with a "Paper Termina
 - **Humorous Persona**: Integrated "digital void" messaging and terminal-style root cause logs.
 - **Consistent UI**: Reuses the global navigation, footer, and particle background for a seamless user experience.
 
-### 5. **Compliance & Architecture**
+### 5. **Asynchronous Contact Form**
+- **Formspree Integration**: Powering the backend with reliable, serverless form processing.
+- **Fetch API Workflow**: Submissions happen in the background without refreshing the page.
+- **Smart Feedback**: Real-time "SENDING..." states and custom successful/error messaging with a humorous developer twist.
+- **Enhanced UI**: Custom emerald input focus glows and disabled loading buttons.
+
+### 6. **Compliance & Architecture**
 - **Privacy Policy**: Standardized compliance page (`privacy.html`) styled to match the terminal aesthetic.
 - **Clean Directory Structure**: Modular organization with dedicated `/assets/`, `/css/`, and `/js/` directories for maintainability.
 - **A11y & SEO**: Full ARIA support, optimized heading hierarchy, and performance-tuned asset loading (WebP/SVG).
@@ -34,6 +40,7 @@ A state-of-the-art, senior-level developer portfolio built with a "Paper Termina
 - **Frontend**: Vanilla HTML5, JavaScript (ES6+)
 - **Animation**: HTML5 Canvas API, Intersection Observer API
 - **Styling**: Tailwind CSS (CDN/Config), Custom CSS Variables
+- **Backend**: Formspree (Serverless Form Handling)
 - **Icons**: Lucide Icons (Dynamic Vector Integration)
 - **Typography**: Inter & UI-Monospace
 

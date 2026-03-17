@@ -309,26 +309,54 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         setTimeout(typeLoop, 1000);
     }
 
-    // Contact Form Validation
+    // Contact Form Asynchronous Submission (Formspree + Fetch API)
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-btn');
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+        
+        // UI: Loading State
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.textContent = "SENDING...";
+        submitBtn.classList.add('btn-loading');
+        formStatus.classList.add('hidden');
+
+        const data = new FormData(event.target);
+        
+        try {
+            const response = await fetch("https://formspree.io/f/mqeygbyr", {
+                method: 'POST',
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                // Success State
+                formStatus.textContent = "Success! Your message has been sent into the safe haven of my inbox. The matrix has approved your request.";
+                formStatus.className = "mt-4 text-sm font-mono text-emerald-500 block";
+                contactForm.classList.add('hidden'); // Hide form on success
+            } else {
+                // Server Error State
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Submission failed');
+            }
+        } catch (error) {
+            // Client/Network Error State
+            formStatus.textContent = "Something went wrong! My digital carrier pigeon got lost in the void. Please try again.";
+            formStatus.className = "mt-4 text-sm font-mono text-red-500 block";
+            
+            // Re-enable form
+            submitBtn.textContent = originalBtnText;
+            submitBtn.classList.remove('btn-loading');
+        }
+    }
 
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            if (name && email && message) {
-                formStatus.textContent = "Thank you! I'll get back to you soon.";
-                formStatus.className = "mt-4 text-sm font-mono text-emerald-500 block";
-                contactForm.reset();
-            } else {
-                formStatus.textContent = "Please fill in all fields.";
-                formStatus.className = "mt-4 text-sm font-mono text-red-500 block";
-            }
-        });
+        contactForm.addEventListener('submit', handleSubmit);
     }
 
     // Theme Toggle Logic
