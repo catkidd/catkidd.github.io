@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
 :root {
   --bg-color: #0a0a0a;
   --text-color: #cbd5e1; /* slate-300 */
@@ -48,7 +50,6 @@ html {
   scroll-padding-top: 0.5rem;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
 .hero-parallax {
   background-image: linear-gradient(to bottom right, var(--bg-color), var(--footer-bg));
