@@ -24,11 +24,12 @@ A state-of-the-art, senior-level developer portfolio built with a "Paper Termina
 - **Humorous Persona**: Integrated "digital void" messaging and terminal-style root cause logs.
 - **Consistent UI**: Reuses the global navigation, footer, and particle background for a seamless user experience.
 
-### 5. **Asynchronous Contact Form**
+### 5. **Asynchronous Contact Form & High-Glow Toaster**
 - **Formspree Integration**: Powering the backend with reliable, serverless form processing.
 - **Fetch API Workflow**: Submissions happen in the background without refreshing the page.
-- **Smart Feedback**: Real-time "SENDING..." states and custom successful/error messaging with a humorous developer twist.
-- **Enhanced UI**: Custom emerald input focus glows and disabled loading buttons.
+- **High-Glow Notification**: A premium, top-right toaster with `backdrop-blur-lg` and neon-emerald glow effects.
+- **Visual Countdown**: A shrinking progress bar at the bottom of the toaster that visualizes the 5-second auto-hide duration.
+- **Production UX**: Integrated loading spinners inside buttons, manual dismissal support, and automatic form field resets.
 
 ### 6. **Compliance & Architecture**
 - **Privacy Policy**: Standardized compliance page (`privacy.html`) styled to match the terminal aesthetic.
