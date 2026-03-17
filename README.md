@@ -19,7 +19,12 @@ A state-of-the-art, senior-level developer portfolio built with a "Paper Termina
 - **Micro-Animations**: Animated sliding underlines for navigation and continuous rotating gradient borders for project cards.
 - **"RETURN 0;" Navigation**: A technical back-to-top button with a "COMPILING..." state upon activation.
 
-### 4. **Compliance & Architecture**
+### 4. **404 Error Landing Page**
+- **Glitch Aesthetic**: Custom CSS glitch animation on the "404" header for a digitally-distorted feel.
+- **Humorous Persona**: Integrated "digital void" messaging and terminal-style root cause logs.
+- **Consistent UI**: Reuses the global navigation, footer, and particle background for a seamless user experience.
+
+### 5. **Compliance & Architecture**
 - **Privacy Policy**: Standardized compliance page (`privacy.html`) styled to match the terminal aesthetic.
 - **Clean Directory Structure**: Modular organization with dedicated `/assets/`, `/css/`, and `/js/` directories for maintainability.
 - **A11y & SEO**: Full ARIA support, optimized heading hierarchy, and performance-tuned asset loading (WebP/SVG).
@@ -41,6 +46,7 @@ This project follows a professional, modular structure designed for GitHub Pages
 - **`/js/`**: Interactive logic (Particles, Scroll Reveal, Theme Engine, Typing Effects).
 - **`index.html`**: Semantic entry point with optimized SEO and accessibility landmarks.
 - **`privacy.html`**: Legal compliance page.
+- **`404.html`**: Custom error landing page with glitch animations.
 
 ## 📂 Project Structure
 
@@ -48,6 +54,7 @@ This project follows a professional, modular structure designed for GitHub Pages
 portfolio/
 ├── index.html           # Core Structure & SEO
 ├── privacy.html         # Legal Compliance
+├── 404.html             # Error Landing Page
 ├── assets/
 │   └── images/
 │       ├── bg.webp      # Optimized Hero Background
