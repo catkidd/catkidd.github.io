@@ -329,27 +329,42 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             const response = await fetch("https://formspree.io/f/mqeygbyr", {
                 method: 'POST',
                 body: data,
+                mode: 'cors', // Explicitly set CORS mode
                 headers: {
                     'Accept': 'application/json'
                 }
             });
 
             if (response.ok) {
-                // Success State
+                // Success State: preparing content before showing
                 formStatus.textContent = "Success! Your message has been sent into the safe haven of my inbox. The matrix has approved your request.";
-                formStatus.className = "mt-4 text-sm font-mono text-emerald-500 block";
-                contactForm.classList.add('hidden'); // Hide form on success
+                
+                // Ensure proper visibility and color
+                formStatus.classList.remove('hidden', 'text-red-500');
+                formStatus.classList.add('block', 'text-emerald-500');
+                
+                // Hide the form
+                contactForm.classList.add('hidden');
             } else {
                 // Server Error State
                 const errorData = await response.json();
+                
+                // Task: Debug 403 Forbidden
+                if (response.status === 403) {
+                    console.error("FORMSPREE 403 DEBUG:", errorData);
+                }
+                
                 throw new Error(errorData.error || 'Submission failed');
             }
         } catch (error) {
             // Client/Network Error State
             formStatus.textContent = "Something went wrong! My digital carrier pigeon got lost in the void. Please try again.";
-            formStatus.className = "mt-4 text-sm font-mono text-red-500 block";
             
-            // Re-enable form
+            // Ensure proper visibility and color
+            formStatus.classList.remove('hidden', 'text-emerald-500');
+            formStatus.classList.add('block', 'text-red-500');
+            
+            // Re-enable form UI
             submitBtn.textContent = originalBtnText;
             submitBtn.classList.remove('btn-loading');
         }
