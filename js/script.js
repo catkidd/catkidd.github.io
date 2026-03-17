@@ -309,19 +309,49 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         setTimeout(typeLoop, 1000);
     }
 
-    // Contact Form Asynchronous Submission (Formspree + Fetch API)
+    // Contact Form & High-Glow Toaster Logic
     const contactForm = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
     const submitBtn = document.getElementById('submit-btn');
+    const btnText = document.getElementById('btn-text');
+    const btnSpinner = document.getElementById('btn-spinner');
+    const toaster = document.getElementById('toaster');
+    const toasterMessage = document.getElementById('toaster-message');
+    const closeToaster = document.getElementById('close-toaster');
+    let toasterTimeout;
+
+    const showToaster = (message, isError = false) => {
+        clearTimeout(toasterTimeout);
+        toasterMessage.innerHTML = message;
+        
+        // High-Glow styling
+        const toasterContainer = toaster.querySelector('div');
+        toasterContainer.className = `bg-slate-900/90 border ${isError ? 'border-red-500' : 'border-emerald-500'} backdrop-blur-lg rounded-lg p-5 shadow-2xl flex items-center space-x-4 max-w-sm relative`;
+        
+        toaster.classList.remove('hide');
+        toaster.classList.add('show');
+        
+        toasterTimeout = setTimeout(() => {
+            hideToaster();
+        }, 5000);
+    };
+
+    const hideToaster = () => {
+        toaster.classList.remove('show');
+        toaster.classList.add('hide');
+    };
+
+    if (closeToaster) {
+        closeToaster.addEventListener('click', hideToaster);
+    }
 
     async function handleSubmit(event) {
         event.preventDefault();
         
         // UI: Loading State
-        const originalBtnText = submitBtn.textContent;
-        submitBtn.textContent = "SENDING...";
+        btnText.classList.add('hidden');
+        btnSpinner.classList.remove('hidden');
+        submitBtn.disabled = true;
         submitBtn.classList.add('btn-loading');
-        formStatus.classList.add('hidden');
 
         const data = new FormData(event.target);
         
@@ -329,43 +359,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             const response = await fetch("https://formspree.io/f/mqeygbyr", {
                 method: 'POST',
                 body: data,
-                mode: 'cors', // Explicitly set CORS mode
+                mode: 'cors',
                 headers: {
                     'Accept': 'application/json'
                 }
             });
 
             if (response.ok) {
-                // Success State: preparing content before showing
-                formStatus.textContent = "Success! Your message has been sent into the safe haven of my inbox. The matrix has approved your request.";
-                
-                // Ensure proper visibility and color
-                formStatus.classList.remove('hidden', 'text-red-500');
-                formStatus.classList.add('block', 'text-emerald-500');
-                
-                // Hide the form
-                contactForm.classList.add('hidden');
+                showToaster("Success! Your message has been sent into the safe haven of my inbox.");
+                contactForm.reset();
+                // Form stays visible as requested
             } else {
-                // Server Error State
                 const errorData = await response.json();
-                
-                // Task: Debug 403 Forbidden
                 if (response.status === 403) {
                     console.error("FORMSPREE 403 DEBUG:", errorData);
                 }
-                
                 throw new Error(errorData.error || 'Submission failed');
             }
         } catch (error) {
-            // Client/Network Error State
-            formStatus.textContent = "Something went wrong! My digital carrier pigeon got lost in the void. Please try again.";
-            
-            // Ensure proper visibility and color
-            formStatus.classList.remove('hidden', 'text-emerald-500');
-            formStatus.classList.add('block', 'text-red-500');
-            
-            // Re-enable form UI
-            submitBtn.textContent = originalBtnText;
+            showToaster(`Something went wrong! My digital carrier pigeon got lost in the void.`, true);
+        } finally {
+            // UI: Reset Loading State
+            btnText.classList.remove('hidden');
+            btnSpinner.classList.add('hidden');
+            submitBtn.disabled = false;
             submitBtn.classList.remove('btn-loading');
         }
     }

@@ -303,12 +303,18 @@
                     <textarea id="message" name="message" rows="5" required class="w-full bg-slate-900 border border-slate-800 rounded-md px-4 py-3 text-slate-200 focus:outline-none focus:border-emerald-500 transition-colors"></textarea>
                 </div>
                 <div class="text-center">
-                    <button type="submit" id="submit-btn" class="px-10 py-4 border border-emerald-600 dark:border-emerald-500 text-emerald-600 dark:text-emerald-500 rounded-md hover:bg-emerald-500/10 transition-colors font-mono tracking-widest text-sm">
-                        Send Message
+                    <button type="submit" id="submit-btn" class="px-10 py-4 border border-emerald-600 dark:border-emerald-500 text-emerald-600 dark:text-emerald-500 rounded-md hover:bg-emerald-500/10 transition-colors font-mono tracking-widest text-sm flex items-center justify-center space-x-2 mx-auto">
+                        <span id="btn-text">Send Message</span>
+                        <span id="btn-spinner" class="hidden">
+                            <svg class="animate-spin h-5 w-5 text-emerald-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                        </span>
                     </button>
                 </div>
             </form>
-            <p id="form-status" class="mt-8 text-center text-sm font-mono hidden"></p>
+
         </section>
     </main>
 
@@ -367,6 +373,14 @@
             <a href="privacy.html" class="hover:text-emerald-500 transition-colors nav-link-animated">Privacy Policy</a>
         </div>
     </footer>
+
+    <!-- Toaster Notification -->
+    <div id="toaster" class="fixed top-8 right-8 z-[100] transform translate-x-20 opacity-0 transition-all duration-500 ease-out pointer-events-none">
+        <div class="bg-slate-900/80 border border-emerald-500/50 backdrop-blur-md rounded-lg p-4 shadow-2xl flex items-center space-x-4 max-w-sm relative">
+            <div id="toaster-message" class="text-sm font-mono text-slate-100 flex-grow pr-8"></div>
+            <button id="close-toaster" class="absolute top-2 right-2 w-6 h-6 flex items-center justify-center rounded-full bg-slate-800/50 text-slate-500 hover:text-emerald-400 hover:bg-slate-700/50 transition-all text-sm leading-none" aria-label="Close notification">&times;</button>
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
     <script>

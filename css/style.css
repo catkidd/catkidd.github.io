@@ -301,3 +301,74 @@ textarea:focus {
   cursor: not-allowed;
   pointer-events: none;
 }
+
+/* High-Glow Toaster Notification Overhaul */
+#toaster {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  opacity: 0;
+  display: block; /* Ensure it's not hidden by default structure */
+}
+
+#toaster.show {
+  opacity: 1;
+  pointer-events: auto;
+  animation: SlideInFromRight 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+#toaster.hide {
+  animation: FadeOut 0.5s ease forwards;
+}
+
+#toaster .bg-slate-900\/80,
+#toaster .bg-slate-900\/90 {
+  background-color: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid #10b981;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.4), 
+              inset 0 0 10px rgba(16, 185, 129, 0.2);
+}
+
+/* Close Button Styling */
+#close-toaster {
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+#close-toaster:hover {
+  color: #10b981;
+  background-color: rgba(16, 185, 129, 0.2);
+  border-color: #10b981;
+  transform: scale(1.1);
+}
+
+@keyframes SlideInFromRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes FadeOut {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(10px); }
+}
+
+/* Custom Spinner Animation (Backup/Alternative to Tailwind) */
+.spinner-ring {
+  border: 2px solid rgba(16, 185, 129, 0.1);
+  border-top-color: var(--accent-color);
+  border-radius: 50%;
+  width: 1.25rem;
+  height: 1.25rem;
+  animation: spinner-rotate 0.8s linear infinite;
+}
+
+@keyframes spinner-rotate {
+  to { transform: rotate(360deg); }
+}
