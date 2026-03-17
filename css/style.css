@@ -324,7 +324,6 @@ textarea:focus {
   animation: FadeOut 0.5s ease forwards;
 }
 
-#toaster .bg-slate-900\/80,
 #toaster .bg-slate-900\/90 {
   background-color: rgba(15, 23, 42, 0.9);
   backdrop-filter: blur(16px);
@@ -334,6 +333,28 @@ textarea:focus {
   border: 1px solid #10b981;
   box-shadow: 0 0 20px rgba(16, 185, 129, 0.4), 
               inset 0 0 10px rgba(16, 185, 129, 0.2);
+  overflow: hidden; /* Contain the progress bar */
+}
+
+/* Progress Bar Styling */
+#toaster-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background-color: #10b981;
+  width: 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+#toaster.show #toaster-progress {
+  animation: ShrinkProgress 5s linear forwards;
+}
+
+@keyframes ShrinkProgress {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); }
 }
 
 /* Close Button Styling */

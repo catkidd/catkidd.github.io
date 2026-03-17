@@ -325,11 +325,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         
         // High-Glow styling
         const toasterContainer = toaster.querySelector('div');
-        toasterContainer.className = `bg-slate-900/90 border ${isError ? 'border-red-500' : 'border-emerald-500'} backdrop-blur-lg rounded-lg p-5 shadow-2xl flex items-center space-x-4 max-w-sm relative`;
+        const progressBar = document.getElementById('toaster-progress');
         
-        toaster.classList.remove('hide');
+        toasterContainer.className = `bg-slate-900/90 border ${isError ? 'border-red-500' : 'border-emerald-500'} backdrop-blur-lg rounded-lg p-5 shadow-2xl flex items-center space-x-4 max-w-sm relative overflow-hidden`;
+        
+        // Reset animation by removing 'show' and forcing reflow
+        toaster.classList.remove('show', 'hide');
+        void toaster.offsetWidth; // Force reflow
         toaster.classList.add('show');
         
+        if (progressBar) {
+            progressBar.style.backgroundColor = isError ? '#ef4444' : '#10b981';
+        }
+
         toasterTimeout = setTimeout(() => {
             hideToaster();
         }, 5000);
