@@ -508,7 +508,24 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     };
 
+    // GitHub Link Obfuscation (Advanced)
+    const initGithubObfuscation = () => {
+        const ghLink = document.getElementById('gh-link');
+        if (ghLink) {
+            ghLink.style.cursor = 'pointer';
+            ghLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Username split into parts to hide from scrapers
+                const part1 = 'cat';
+                const part2 = 'kidd';
+                const url = `https://github.com/${part1}${part2}`;
+                window.open(url, '_blank', 'noopener,noreferrer');
+            });
+        }
+    };
+
     initEmailObfuscation();
     initSocialObfuscation();
     initSmoothScroll();
+    initGithubObfuscation();
 });
