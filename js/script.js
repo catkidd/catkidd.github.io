@@ -454,13 +454,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     navigator.clipboard.writeText(fullEmail).then(() => {
-                        const originalText = link.textContent;
                         link.textContent = 'COPIED!';
-                        link.classList.add('text-emerald-500'); // Ensure it pops
+                        link.classList.add('copied');
                         
                         setTimeout(() => {
                             link.textContent = fullEmail;
-                            link.classList.remove('text-emerald-500');
+                            link.classList.remove('copied');
                         }, 2000);
                     });
                 });

@@ -1,83 +1,106 @@
-# Professional Minimalist Developer Portfolio
+# Dipesh Parajuli — Developer Portfolio
 
-A state-of-the-art, senior-level developer portfolio built with a "Paper Terminal" aesthetic. This project features high-performance 2D canvas animations, production-ready optimizations, and premium scroll interactions to create a professional digital space.
+A premium, minimalist developer portfolio built with a **"Paper Terminal"** aesthetic. Features high-performance canvas animations, production-ready security, and polished mobile-first interactions.
 
-## 🚀 Premium Features
+🌐 **Live Site**: [catkidd.github.io](https://catkidd.github.io)
 
-### 1. **High-Performance Particle Hero**
-- **Interactive Canvas**: Optimized HTML5 Canvas particle network with emerald nodes and dynamic web-lines.
-- **Magnetic Interaction**: Particles are gently attracted to the cursor within a 200px radius using spatial physics.
-- **Technical Polish**: Implements `requestAnimationFrame` for 60fps smoothness and High-DPI (Retina) support for razor-sharp rendering on 4K displays.
+---
 
-### 2. **Professional Scroll Reveal System**
-- **Intersection Observer**: Modern, high-performance scroll triggers that slide content into view only once.
-- **Cubic-Bezier Motion**: Uses a custom `cubic-bezier(0.4, 0, 0.2, 1)` timing for a non-linear, professional feel.
-- **Dynamic Staggering**: Sequential reveal delays for project cards and experience items to create visual rhythm.
+## ✨ Features
 
-### 3. **Sophisticated UI & UX**
-- **Dual Aesthetic**: Toggle between a deep "Professional Dark" theme and a "Paper Terminal" light mode.
-- **Micro-Animations**: Animated sliding underlines for navigation and continuous rotating gradient borders for project cards.
-- **"RETURN 0;" Navigation**: A technical back-to-top button with a "COMPILING..." state upon activation.
+### 1. Interactive Particle Hero
+- **HTML5 Canvas**: 180-particle emerald network with real-time mouse attraction physics.
+- **Retina Support**: High-DPI rendering with `devicePixelRatio` scaling for 4K displays.
+- **60fps Smoothed**: Powered by `requestAnimationFrame` and debounced resize handling.
 
-### 4. **404 Error Landing Page**
-- **Glitch Aesthetic**: Custom CSS glitch animation on the "404" header for a digitally-distorted feel.
-- **Humorous Persona**: Integrated "digital void" messaging and terminal-style root cause logs.
-- **Consistent UI**: Reuses the global navigation, footer, and particle background for a seamless user experience.
+### 2. Terminal-Style CTA Buttons
+- **Command-Line UX**: Two hero buttons — `Init.contact()_` and `git checkout projects` — rendered in a monospaced font.
+- **Blinking Cursor**: CSS `@keyframes` animation on the underscore cursor, hidden on hover.
+- **Neon Glow on Hover**: Layered `box-shadow` creates a soft emerald neon effect on the primary button.
+- **Mobile Responsive**: Buttons stack vertically and span full-width on small screens with scaled font size.
+- **Smooth Scroll**: A reusable `initSmoothScroll()` handler glides users to the target section.
 
-### 5. **Asynchronous Contact Form & High-Glow Toaster**
-- **Formspree Integration**: Powering the backend with reliable, serverless form processing.
-- **Fetch API Workflow**: Submissions happen in the background without refreshing the page.
-- **High-Glow Notification**: A premium, top-right toaster with `backdrop-blur-lg` and neon-emerald glow effects.
-- **Visual Countdown**: A shrinking progress bar at the bottom of the toaster that visualizes the 5-second auto-hide duration.
-- **Production UX**: Integrated loading spinners inside buttons, manual dismissal support, and automatic form field resets.
+### 3. Footer: Security & Privacy
+- **Email Obfuscation**: Email address is split across `data-user` and `data-domain` attributes — never written in plain text. JavaScript reconstructs it on load.
+- **Click-to-Copy**: Clicking the email copies it to the clipboard via the `navigator.clipboard` API. The link text changes to a glowing **"COPIED!"** for 2 seconds, then reverts. No layout shift thanks to `min-width`.
+- **Social Link Obfuscation**: LinkedIn and Facebook URLs are stored in `data-url` attributes and opened via a JS click handler — never as raw `href` links.
+- **GitHub Obfuscation (Advanced)**: GitHub username is split into string fragments (`cat` + `kidd`) and only assembled at click-time. No trace of the full URL in the HTML source.
+- **Tabnabbing Protection**: All external links opened via `window.open` use `noopener,noreferrer`.
 
-### 6. **Compliance & Architecture**
-- **Privacy Policy**: Standardized compliance page (`privacy.html`) styled to match the terminal aesthetic.
-- **Clean Directory Structure**: Modular organization with dedicated `/assets/`, `/css/`, and `/js/` directories for maintainability.
-- **A11y & SEO**: Full ARIA support, optimized heading hierarchy, and performance-tuned asset loading (WebP/SVG).
+### 4. Scroll Reveal System
+- **Intersection Observer**: Content slides into view once, using a `cubic-bezier(0.4, 0, 0.2, 1)` curve.
+- **Staggered Cards**: Project and experience cards reveal sequentially for visual rhythm.
 
-## 🛠️ Tech Stack & Tools
+### 5. Dual-Theme Engine
+- **Dark / Light Mode**: Toggle between deep "Professional Dark" and "Paper Terminal" light mode.
+- **Persistent State**: Theme preference stored in `localStorage`.
 
-- **Frontend**: Vanilla HTML5, JavaScript (ES6+)
-- **Animation**: HTML5 Canvas API, Intersection Observer API
-- **Styling**: Tailwind CSS (CDN/Config), Custom CSS Variables
-- **Backend**: Formspree (Serverless Form Handling)
-- **Icons**: Lucide Icons (Dynamic Vector Integration)
-- **Typography**: Inter & UI-Monospace
+### 6. Asynchronous Contact Form
+- **Formspree Backend**: Serverless, reliable form handling with zero server setup.
+- **Fetch API**: Submissions happen without page reload.
+- **High-Glow Toaster**: `backdrop-blur` notification with neon-emerald glow and a shrinking progress bar for the 5-second auto-hide.
+- **UX Polish**: Loading spinner in submit button, form reset on success, manual dismiss.
 
-## 🏛️ Project Architecture
+### 7. 404 Error Page
+- **Glitch Animation**: Custom CSS glitch keyframes on the "404" header.
+- **Consistent Branding**: Shares the same navbar, footer, and particle canvas as the main site.
 
-This project follows a professional, modular structure designed for GitHub Pages deployment:
+### 8. Privacy Policy Page
+- Standardized compliance page (`privacy.html`) in the terminal aesthetic.
+- Full footer with obfuscated social links and email, consistent with all pages.
 
-- **`/assets/images/`**: Optimized visual assets (WebP) and vector branding (SVG).
-- **`/css/`**: Core styling logic, theming variables, and animation keyframes.
-- **`/js/`**: Interactive logic (Particles, Scroll Reveal, Theme Engine, Typing Effects).
-- **`index.html`**: Semantic entry point with optimized SEO and accessibility landmarks.
-- **`privacy.html`**: Legal compliance page.
-- **`404.html`**: Custom error landing page with glitch animations.
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Structure | HTML5 (Semantic) |
+| Styling | Tailwind CSS (CDN), Custom CSS Variables |
+| Logic | Vanilla JavaScript (ES6+) |
+| Animation | HTML5 Canvas, Intersection Observer, CSS Keyframes |
+| Form Backend | Formspree |
+| Icons | Lucide Icons |
+| Fonts | Inter (Sans), Monospace stack (Consolas / Cascadia Code) |
+| Deployment | GitHub Pages |
+
+---
 
 ## 📂 Project Structure
 
-```bash
-portfolio/
-├── index.html           # Core Structure & SEO
-├── privacy.html         # Legal Compliance
-├── 404.html             # Error Landing Page
+```
+catkidd.github.io/
+├── index.html           # Main portfolio page
+├── privacy.html         # Privacy Policy
+├── 404.html             # Custom error page
 ├── assets/
 │   └── images/
-│       ├── bg.webp      # Optimized Hero Background
+│       ├── bg.webp          # Hero background
+│       ├── profile_1.webp   # Professional photo
 │       ├── logo-light.svg
 │       └── logo-dark.svg
 ├── css/
-│   └── style.css        # Theming, Animations & Variables
+│   └── style.css        # Theming, animations & variables
 ├── js/
-│   └── script.js        # Particles, Reveals & Interaction
-└── README.md            # Architecture Documentation
+│   └── script.js        # Particles, reveals, security & interaction
+└── README.md
 ```
+
+---
+
+## 🔒 Security Notes
+
+- No raw email address or social media URLs exist in the HTML source.
+- All external links use `rel="noopener noreferrer"` to prevent tabnabbing.
+- Email is reconstructed client-side from split `data-*` attributes.
+- GitHub username is stored as two separate string constants in JS only.
+
+---
 
 ## 🏁 Deployment
 
-This project is optimized for **GitHub Pages**. All internal links use relative pathing and strictly follow case-sensitive naming conventions to ensure zero breaks upon hosting.
+Hosted on **GitHub Pages** via the `main` branch. All links use relative pathing and case-sensitive filenames compatible with Linux-based GitHub servers.
 
 ---
-*Architected & Built by Dipesh Parajuli &copy; 2026*
+
+*Built by Dipesh Parajuli &copy; 2026*

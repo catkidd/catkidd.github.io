@@ -409,25 +409,30 @@ textarea:focus {
 }
 
 .terminal-btn {
-  font-family: var(--font-mono);
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
   font-size: 0.9rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  padding: 0.75rem 1.75rem;
+  border-radius: 6px;
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   letter-spacing: 0.05em;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 .btn-terminal-primary {
   background-color: var(--accent-color);
-  color: #0f172a; /* Dark slate text for better contrast on emerald */
+  color: #0f172a;
   font-weight: 700;
+  border: 2px solid var(--accent-color);
 }
 
 .btn-terminal-primary:hover {
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.6), 0 0 50px rgba(16, 185, 129, 0.2);
   transform: translateY(-2px);
 }
 
@@ -436,29 +441,29 @@ textarea:focus {
 }
 
 .btn-terminal-secondary {
-  border: 1px solid var(--accent-color);
+  border: 2px solid var(--accent-color);
   color: var(--accent-color);
   background-color: transparent;
 }
 
 .btn-terminal-secondary:hover {
-  background-color: rgba(16, 185, 129, 0.1);
+  background-color: rgba(16, 185, 129, 0.15);
+  /* box-shadow: 0 0 15px rgba(16, 185, 129, 0.3); */
   transform: translateY(-2px);
 }
 
-/* Responsive Terminal Buttons */
 @media (max-width: 768px) {
   .cta-container {
     flex-direction: column;
-    gap: 1rem;
+    gap: 1rem; /* Exact gap-y-4 */
     width: 100%;
   }
 
   .terminal-btn {
     width: 100%;
     justify-content: center;
-    font-size: 0.8rem; /* Smaller for mobile to prevent overflow */
-    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    padding: 0.8rem 1rem;
   }
 }
 
@@ -476,4 +481,18 @@ textarea:focus {
 .footer-contact-info {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+.email-link {
+  display: inline-block;
+  min-width: 120px; /* Prevent layout shift */
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.email-link.copied {
+  color: var(--accent-color) !important;
+  text-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
+  font-weight: bold;
+  transform: scale(1.05);
 }
