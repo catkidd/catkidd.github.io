@@ -439,7 +439,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const revealElements = document.querySelectorAll('.reveal');
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // Email Obfuscation & Click-to-Copy
+    // Email Obfuscation & In-place Click-to-Copy
     const initEmailObfuscation = () => {
         const emailLinks = document.querySelectorAll('.email-link');
         emailLinks.forEach(link => {
@@ -447,19 +447,21 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             const domain = link.getAttribute('data-domain');
             if (user && domain) {
                 const fullEmail = `${user}@${domain}`;
+                // Set initial text to email address instead of loading text
                 link.textContent = fullEmail;
                 link.style.cursor = 'pointer';
 
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     navigator.clipboard.writeText(fullEmail).then(() => {
-                        const badge = link.parentElement.querySelector('.copy-badge');
-                        if (badge) {
-                            badge.classList.add('show');
-                            setTimeout(() => {
-                                badge.classList.remove('show');
-                            }, 2000);
-                        }
+                        const originalText = link.textContent;
+                        link.textContent = 'COPIED!';
+                        link.classList.add('text-emerald-500'); // Ensure it pops
+                        
+                        setTimeout(() => {
+                            link.textContent = fullEmail;
+                            link.classList.remove('text-emerald-500');
+                        }, 2000);
                     });
                 });
             }
