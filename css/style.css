@@ -195,7 +195,7 @@ body {
 /* Back to Top ('RETURN') */
 #back-to-top {
   position: fixed;
-  bottom: 2rem;
+  bottom: 6rem; /* Mobile offset to clear footer links */
   right: 2rem;
   background-color: var(--btt-tint);
   backdrop-filter: blur(12px);
@@ -210,6 +210,12 @@ body {
   z-index: 40;
   text-decoration: none;
   white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  #back-to-top {
+    bottom: 2rem; /* Desktop reset */
+  }
 }
 
 #back-to-top.show {
