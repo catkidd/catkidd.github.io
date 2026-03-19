@@ -425,3 +425,56 @@ textarea:focus {
   opacity: 1;
   transform: translate(-50%, -15px);
 }
+
+/* Terminal CTA Buttons */
+.cta-container {
+  margin-top: 2.5rem;
+}
+
+.terminal-btn {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.btn-terminal-primary {
+  background-color: var(--accent-color);
+  color: #0f172a; /* Dark slate text for better contrast on emerald */
+  font-weight: 700;
+}
+
+.btn-terminal-primary:hover {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
+  transform: translateY(-2px);
+}
+
+.btn-terminal-primary:hover .terminal-cursor {
+  display: none;
+}
+
+.btn-terminal-secondary {
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  background-color: transparent;
+}
+
+.btn-terminal-secondary:hover {
+  background-color: rgba(16, 185, 129, 0.1);
+  transform: translateY(-2px);
+}
+
+.terminal-cursor {
+  font-weight: bold;
+  animation: terminal-blink 1s step-end infinite;
+}
+
+@keyframes terminal-blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}

@@ -481,6 +481,34 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     };
 
+    // Smooth Scroll Logic
+    const initSmoothScroll = () => {
+        const links = document.querySelectorAll('a[href^="#"]');
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const targetId = link.getAttribute('href');
+                if (targetId === '#' || targetId === '') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (mobileMenu && mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    };
+
     initEmailObfuscation();
     initSocialObfuscation();
+    initSmoothScroll();
 });
