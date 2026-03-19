@@ -438,4 +438,49 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
     const revealElements = document.querySelectorAll('.reveal');
     revealElements.forEach(el => revealObserver.observe(el));
+
+    // Email Obfuscation & Click-to-Copy
+    const initEmailObfuscation = () => {
+        const emailLinks = document.querySelectorAll('.email-link');
+        emailLinks.forEach(link => {
+            const user = link.getAttribute('data-user');
+            const domain = link.getAttribute('data-domain');
+            if (user && domain) {
+                const fullEmail = `${user}@${domain}`;
+                link.textContent = fullEmail;
+                link.style.cursor = 'pointer';
+
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    navigator.clipboard.writeText(fullEmail).then(() => {
+                        const badge = link.parentElement.querySelector('.copy-badge');
+                        if (badge) {
+                            badge.classList.add('show');
+                            setTimeout(() => {
+                                badge.classList.remove('show');
+                            }, 2000);
+                        }
+                    });
+                });
+            }
+        });
+    };
+
+    // Social Link Obfuscation
+    const initSocialObfuscation = () => {
+        const socialLinks = document.querySelectorAll('[data-url]');
+        socialLinks.forEach(link => {
+            link.style.cursor = 'pointer';
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const url = link.getAttribute('data-url');
+                if (url) {
+                    window.open(url, '_blank', 'noopener,noreferrer');
+                }
+            });
+        });
+    };
+
+    initEmailObfuscation();
+    initSocialObfuscation();
 });

@@ -400,3 +400,28 @@ textarea:focus {
 @keyframes spinner-rotate {
   to { transform: rotate(360deg); }
 }
+
+/* Click-to-Copy Badge */
+.copy-badge {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, -10px);
+  background-color: var(--accent-color);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: bold;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  z-index: 100;
+  white-space: nowrap;
+}
+
+.copy-badge.show {
+  opacity: 1;
+  transform: translate(-50%, -15px);
+}
