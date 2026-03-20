@@ -7,8 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let particles = [];
         
         // Settings
-        const particleCount = 180; // Adjust for density
-        const connectDistance = 200; // Distance to draw lines
+        const isMobile = window.innerWidth < 768;
+        const particleCount = isMobile ? 40 : 180; // Adjust for density
+        const connectDistance = isMobile ? 120 : 200; // Distance to draw lines (30-40% reduction for mobile)
         const mouseRadius = 200; // Radius of mouse attraction
         const baseColor = 'rgba(16, 185, 129, '; // Emerald-500
 
@@ -42,17 +43,19 @@ document.addEventListener('DOMContentLoaded', () => {
             resizeTimeout = setTimeout(resizeCanvas, 200);
         });
         
-        // Mouse Tracking
-        canvas.addEventListener('mousemove', (e) => {
-            const rect = canvas.getBoundingClientRect();
-            mouse.x = e.clientX - rect.left;
-            mouse.y = e.clientY - rect.top;
-        });
+        // Mouse Tracking (Only on Desktop)
+        if (!isMobile) {
+            window.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
 
-        canvas.addEventListener('mouseleave', () => {
-            mouse.x = null;
-            mouse.y = null;
-        });
+            window.addEventListener('mouseleave', () => {
+                mouse.x = null;
+                mouse.y = null;
+            });
+        }
 
         // Particle Class
         class Particle {
@@ -80,8 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (this.x < 0 || this.x > width) this.vx *= -1;
                 if (this.y < 0 || this.y > height) this.vy *= -1;
 
-                // Mouse Attraction
-                if (mouse.x != null && mouse.y != null) {
+                // Mouse Attraction (Only on Desktop)
+                if (!isMobile && mouse.x != null && mouse.y != null) {
                     let dx = mouse.x - this.x;
                     let dy = mouse.y - this.y;
                     let distance = Math.sqrt(dx * dx + dy * dy);

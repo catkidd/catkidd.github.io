@@ -60,6 +60,7 @@ html {
 
 #particle-canvas {
   opacity: 0.4; /* Subtle background presence */
+  pointer-events: none;
 }
 
 /* Page Fade-in */
