@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Settings
         const isMobile = window.innerWidth < 768;
         const particleCount = isMobile ? 40 : 180; // Adjust for density
-        const connectDistance = isMobile ? 120 : 200; // Distance to draw lines (30-40% reduction for mobile)
+        const connectDistance = isMobile ? 80 : 200; // Distance to draw lines (30-40% reduction for mobile)
         const mouseRadius = 200; // Radius of mouse attraction
         const baseColor = 'rgba(16, 185, 129, '; // Emerald-500
 
