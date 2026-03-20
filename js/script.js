@@ -529,4 +529,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     initSocialObfuscation();
     initSmoothScroll();
     initGithubObfuscation();
+
+    // About Section Carousel Logic
+    const initAboutCarousel = () => {
+        const carouselImages = document.querySelectorAll('#about-carousel .carousel-img');
+        if (carouselImages.length <= 1) return;
+
+        let currentIndex = 0;
+        setInterval(() => {
+            carouselImages[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % carouselImages.length;
+            carouselImages[currentIndex].classList.add('active');
+        }, 5000);
+    };
+
+    initAboutCarousel();
 });
