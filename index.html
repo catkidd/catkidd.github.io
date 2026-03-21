@@ -105,7 +105,7 @@
             <div class="flex items-center space-x-2 text-emerald-500 font-mono text-lg md:text-xl">
                 <span>$</span>
                 <span class="tagline">Full Stack Developer & UI Enthusiast</span>
-                <span class="cursor"></span>
+                <span class="cursor" aria-hidden="true"></span>
             </div>
 
             <!-- Terminal CTA Buttons -->
@@ -393,7 +393,7 @@
     </footer>
 
     <!-- Toaster Notification -->
-    <div id="toaster" class="fixed top-8 right-8 z-[9999] transform translate-x-20 opacity-0 transition-opacity duration-500 ease-out pointer-events-none">
+    <div id="toaster" role="alert" aria-live="polite" class="fixed top-8 right-8 z-[9999] transform translate-x-20 opacity-0 transition-opacity duration-500 ease-out pointer-events-none">
         <div class="bg-slate-900/90 border border-emerald-500 backdrop-blur-lg rounded-lg p-5 shadow-2xl flex items-center space-x-4 max-w-sm relative overflow-hidden">
             <div id="toaster-message" class="text-sm font-mono text-slate-100 flex-grow pr-8"></div>
             <button id="close-toaster" class="absolute top-2 right-2 w-6 h-6 flex items-center justify-center rounded-full bg-emerald-500/10 border border-emerald-500/20 text-slate-500 hover:text-emerald-400 hover:bg-emerald-500/20 hover:border-emerald-500 transition-all text-sm leading-none" aria-label="Close notification">&times;</button>
