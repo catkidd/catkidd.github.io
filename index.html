@@ -1,411 +1,805 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dipesh Parajuli</title>
-    
+
     <!-- SEO & Social Sharing -->
-    <meta name="description" content="Professional Full Stack Developer portfolio of Dipesh Parajuli, specializing in high-performance web experiences and UI/UX enthusiasts.">
-    <meta property="og:title" content="Dipesh Parajuli">
-    <meta property="og:description" content="Explore my projects, experience, and tech stack. Built with modern web standards and high-end aesthetics.">
-    <meta property="og:image" content="assets/images/bg.webp">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    
+    <meta
+      name="description"
+      content="Professional Full Stack Developer portfolio of Dipesh Parajuli, specializing in high-performance web experiences and UI/UX enthusiasts."
+    />
+    <meta property="og:title" content="Dipesh Parajuli" />
+    <meta
+      property="og:description"
+      content="Explore my projects, experience, and tech stack. Built with modern web standards and high-end aesthetics."
+    />
+    <meta property="og:image" content="assets/images/bg.webp" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
     <!-- Tailwind (Production Build) -->
     <!-- After running the build command, link to your compiled CSS: -->
     <!-- <link rel="stylesheet" href="tailwind.css"> -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        emerald: {
-                            500: '#10b981',
-                            600: '#059669',
-                            700: '#047857',
-                        },
-                        slate: {
-                            50: '#F8F9FA',
-                            900: '#1A1A1B',
-                        }
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              emerald: {
+                500: "#10b981",
+                600: "#059669",
+                700: "#047857",
+              },
+              slate: {
+                50: "#F8F9FA",
+                900: "#1A1A1B",
+              },
+            },
+          },
+        },
+      };
     </script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-</head>
-<body class="bg-slate-50 dark:bg-[#0a0a0a] text-slate-600 dark:text-slate-300 transition-colors duration-300">
-
+  </head>
+  <body
+    class="bg-slate-50 dark:bg-[#0a0a0a] text-slate-600 dark:text-slate-300 transition-colors duration-300"
+  >
     <!-- Reading Progress Bar -->
     <div id="progress-bar"></div>
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass px-6 py-4">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="#hero" class="flex items-center">
-                <img src="assets/images/logo-light.svg" alt="Portfolio Logo" id="nav-logo" class="h-8 md:h-10 w-auto">
-            </a>
-            
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center space-x-8 text-sm font-medium uppercase tracking-widest text-slate-600 dark:text-slate-300">
-                <a href="#about" class="hover:text-emerald-500 transition-colors nav-link-animated">About</a>
-                <a href="#projects" class="hover:text-emerald-500 transition-colors nav-link-animated">Projects</a>
-                <a href="#experience" class="hover:text-emerald-500 transition-colors nav-link-animated">Experience</a>
-                <a href="#contact" class="hover:text-emerald-500 transition-colors nav-link-animated">Contact</a>
-                <button id="theme-toggle" class="font-mono text-[12px] border border-emerald-500/30 px-3 py-1 rounded hover:bg-emerald-500/10 transition-all text-emerald-500" aria-label="Toggle light/dark mode">
-                    [ MODE: DARK ]
-                </button>
-            </div>
+      <div class="max-w-6xl mx-auto flex justify-between items-center">
+        <a href="#hero" class="flex items-center">
+          <img
+            src="assets/images/logo-light.svg"
+            alt="Portfolio Logo"
+            id="nav-logo"
+            class="h-8 md:h-10 w-auto"
+          />
+        </a>
 
-            <!-- Mobile Toggle -->
-            <button id="menu-btn" class="md:hidden text-slate-600 dark:text-slate-300" aria-label="Open navigation menu">
-                <i data-lucide="menu"></i>
-            </button>
+        <!-- Desktop Menu -->
+        <div
+          class="hidden md:flex items-center space-x-8 text-sm font-medium uppercase tracking-widest text-slate-600 dark:text-slate-300"
+        >
+          <a
+            href="#about"
+            class="hover:text-emerald-500 transition-colors nav-link-animated"
+            >About</a
+          >
+          <a
+            href="#projects"
+            class="hover:text-emerald-500 transition-colors nav-link-animated"
+            >Projects</a
+          >
+          <a
+            href="#experience"
+            class="hover:text-emerald-500 transition-colors nav-link-animated"
+            >Experience</a
+          >
+          <a
+            href="#contact"
+            class="hover:text-emerald-500 transition-colors nav-link-animated"
+            >Contact</a
+          >
+          <button
+            id="theme-toggle"
+            class="font-mono text-[12px] border border-emerald-500/30 px-3 py-1 rounded hover:bg-emerald-500/10 transition-all text-emerald-500"
+            aria-label="Toggle light/dark mode"
+          >
+            [ MODE: DARK ]
+          </button>
         </div>
+
+        <!-- Mobile Toggle -->
+        <button
+          id="menu-btn"
+          class="md:hidden text-slate-600 dark:text-slate-300"
+          aria-label="Open navigation menu"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
     </nav>
 
     <!-- Mobile Side Menu -->
-    <div id="mobile-menu" class="fixed inset-0 bg-slate-50 dark:bg-[#0a0a0a] z-[60] flex flex-col items-center justify-center space-y-8 text-2xl" aria-hidden="true">
-        <button id="close-btn" class="absolute top-6 right-6 text-slate-600 dark:text-slate-300" aria-label="Close navigation menu">
-            <i data-lucide="x"></i>
-        </button>
-        <a href="#about" class="mobile-link hover:text-emerald-500 text-slate-600 dark:text-slate-300">About</a>
-        <a href="#projects" class="mobile-link hover:text-emerald-500 text-slate-600 dark:text-slate-300">Projects</a>
-        <a href="#experience" class="mobile-link hover:text-emerald-500 text-slate-600 dark:text-slate-300">Experience</a>
-        <a href="#contact" class="mobile-link hover:text-emerald-500 text-slate-600 dark:text-slate-300">Contact</a>
-        <button id="mobile-theme-toggle" class="font-mono text-sm border border-emerald-500/30 px-6 py-2 rounded text-emerald-500 mt-4">
-            [ MODE: DARK ]
-        </button>
+    <div
+      id="mobile-menu"
+      class="fixed inset-0 bg-slate-50 dark:bg-[#0a0a0a] z-[60] flex flex-col items-center justify-center space-y-8 text-2xl"
+      aria-hidden="true"
+    >
+      <button
+        id="close-btn"
+        class="absolute top-6 right-6 text-slate-600 dark:text-slate-300"
+        aria-label="Close navigation menu"
+      >
+        <i data-lucide="x"></i>
+      </button>
+      <a
+        href="#about"
+        class="mobile-link hover:text-emerald-500 text-slate-600 dark:text-slate-300"
+        >About</a
+      >
+      <a
+        href="#projects"
+        class="mobile-link hover:text-emerald-500 text-slate-600 dark:text-slate-300"
+        >Projects</a
+      >
+      <a
+        href="#experience"
+        class="mobile-link hover:text-emerald-500 text-slate-600 dark:text-slate-300"
+        >Experience</a
+      >
+      <a
+        href="#contact"
+        class="mobile-link hover:text-emerald-500 text-slate-600 dark:text-slate-300"
+        >Contact</a
+      >
+      <button
+        id="mobile-theme-toggle"
+        class="font-mono text-sm border border-emerald-500/30 px-6 py-2 rounded text-emerald-500 mt-4"
+      >
+        [ MODE: DARK ]
+      </button>
     </div>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero-parallax flex items-center justify-center relative overflow-hidden">
-        <canvas id="particle-canvas" class="absolute inset-0 w-full h-full z-0 pointer-events-none"></canvas>
-        <div class="max-w-6xl mx-auto px-6 w-full relative z-10 transition-transform duration-500 hover:scale-[1.01]">
-            <p class="text-emerald-500 font-mono mb-4">Hi, my name is</p>
-            <h1 class="text-5xl md:text-7xl font-bold text-slate-100 mb-6 tracking-tight flex items-center gap-6">
-                Dipesh Parajuli.
-                <div class="hero-avatar-wrapper">
-                    <img src="assets/images/profile_1.webp" alt="Dipesh Parajuli" class="hero-avatar" loading="lazy">
-                </div>
-            </h1>
-            <h2 class="text-3xl md:text-5xl font-semibold text-slate-400 mb-8 leading-tight">
-                I build digital experiences for the web.
-            </h2>
-            <div class="flex items-center space-x-2 text-emerald-500 font-mono text-lg md:text-xl">
-                <span>$</span>
-                <span class="tagline">Full Stack Developer & UI Enthusiast</span>
-                <span class="cursor" aria-hidden="true"></span>
-            </div>
-
-            <!-- Terminal CTA Buttons -->
-            <div class="cta-container flex flex-wrap gap-4 mt-10">
-                <a href="#contact" class="terminal-btn btn-terminal-primary">
-                    Init.contact()<span class="terminal-cursor">_</span>
-                </a>
-                <a href="#projects" class="terminal-btn btn-terminal-secondary">
-                    git checkout projects
-                </a>
-            </div>
+    <section
+      id="hero"
+      class="hero-parallax flex items-center justify-center relative overflow-hidden"
+    >
+      <canvas
+        id="particle-canvas"
+        class="absolute inset-0 w-full h-full z-0 pointer-events-none"
+      ></canvas>
+      <div
+        class="max-w-6xl mx-auto px-6 w-full relative z-10 transition-transform duration-500 hover:scale-[1.01]"
+      >
+        <p class="text-emerald-500 font-mono mb-4">Hi, my name is</p>
+        <h1
+          class="text-5xl md:text-7xl font-bold text-slate-100 mb-6 tracking-tight flex items-center gap-6"
+        >
+          Dipesh Parajuli.
+          <div class="hero-avatar-wrapper">
+            <img
+              src="assets/images/profile_1.webp"
+              alt="Dipesh Parajuli"
+              class="hero-avatar"
+              loading="lazy"
+            />
+          </div>
+        </h1>
+        <h2
+          class="text-3xl md:text-5xl font-semibold text-slate-400 mb-8 leading-tight"
+        >
+          I build digital experiences for the web.
+        </h2>
+        <div
+          class="flex items-center space-x-2 text-emerald-500 font-mono text-lg md:text-xl"
+        >
+          <span>$</span>
+          <span class="tagline">Full Stack Developer & UI Enthusiast</span>
+          <span class="cursor" aria-hidden="true"></span>
         </div>
+
+        <!-- Terminal CTA Buttons -->
+        <div class="cta-container flex flex-wrap gap-4 mt-10">
+          <a href="#contact" class="terminal-btn btn-terminal-primary">
+            Init.contact()<span class="terminal-cursor">_</span>
+          </a>
+          <a href="#projects" class="terminal-btn btn-terminal-secondary">
+            git checkout projects
+          </a>
+        </div>
+      </div>
     </section>
 
     <main class="max-w-6xl mx-auto px-6">
-
-        <!-- About Section -->
-        <section id="about" class="py-24 reveal">
-            <div class="flex items-center space-x-4 mb-8">
-                <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">01. About Me</h3>
-                <div class="h-[1px] bg-slate-200 dark:bg-slate-800 flex-grow"></div>
+      <!-- About Section -->
+      <section id="about" class="py-24 reveal">
+        <div class="flex items-center space-x-4 mb-8">
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">
+            01. About Me
+          </h3>
+          <div class="h-[1px] bg-slate-200 dark:bg-slate-800 flex-grow"></div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-12">
+          <div
+            class="md:col-span-2 space-y-4 text-slate-600 dark:text-slate-400"
+          >
+            <p>
+              Hello! I'm a passionate developer who enjoys creating things that
+              live on the internet. My journey in web development started back
+              in 2018 when I decided to try editing custom Tumblr themes — turns
+              out hacking together a simple reblog button taught me a lot about
+              HTML & CSS!
+            </p>
+            <p>
+              Fast-forward to today, and I’ve had the privilege of working at an
+              advertising agency, a start-up, and a large corporation. My main
+              focus these days is building accessible, inclusive products and
+              digital experiences.
+            </p>
+            <p>Here are a few technologies I’ve been working with recently:</p>
+            <div
+              id="tech-stack"
+              class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 font-mono text-sm"
+            >
+              <div class="tech-card reveal">
+                <i
+                  data-lucide="code-2"
+                  class="w-6 h-6 text-emerald-500 mb-2"
+                ></i>
+                <span class="text-slate-700 dark:text-slate-300"
+                  >JavaScript</span
+                >
+              </div>
+              <div class="tech-card reveal">
+                <i data-lucide="atom" class="w-6 h-6 text-emerald-500 mb-2"></i>
+                <span class="text-slate-700 dark:text-slate-300">React</span>
+              </div>
+              <div class="tech-card reveal">
+                <i
+                  data-lucide="server"
+                  class="w-6 h-6 text-emerald-500 mb-2"
+                ></i>
+                <span class="text-slate-700 dark:text-slate-300">Node.js</span>
+              </div>
+              <div class="tech-card reveal">
+                <i data-lucide="wind" class="w-6 h-6 text-emerald-500 mb-2"></i>
+                <span class="text-slate-700 dark:text-slate-300">Tailwind</span>
+              </div>
+              <div class="tech-card reveal">
+                <i
+                  data-lucide="file-json"
+                  class="w-6 h-6 text-emerald-500 mb-2"
+                ></i>
+                <span class="text-slate-700 dark:text-slate-300"
+                  >TypeScript</span
+                >
+              </div>
+              <div class="tech-card reveal">
+                <i
+                  data-lucide="layers"
+                  class="w-6 h-6 text-emerald-500 mb-2"
+                ></i>
+                <span class="text-slate-700 dark:text-slate-300">Next.js</span>
+              </div>
             </div>
-            <div class="grid md:grid-cols-3 gap-12">
-                <div class="md:col-span-2 space-y-4 text-slate-600 dark:text-slate-400">
-                    <p>
-                        Hello! I'm a passionate developer who enjoys creating things that live on the internet. My journey in web development started back in 2018 when I decided to try editing custom Tumblr themes — turns out hacking together a simple reblog button taught me a lot about HTML & CSS!
-                    </p>
-                    <p>
-                        Fast-forward to today, and I’ve had the privilege of working at an advertising agency, a start-up, and a large corporation. My main focus these days is building accessible, inclusive products and digital experiences.
-                    </p>
-                    <p>Here are a few technologies I’ve been working with recently:</p>
-                    <div id="tech-stack" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 font-mono text-sm">
-                        <div class="tech-card reveal">
-                            <i data-lucide="code-2" class="w-6 h-6 text-emerald-500 mb-2"></i>
-                            <span class="text-slate-700 dark:text-slate-300">JavaScript</span>
-                        </div>
-                        <div class="tech-card reveal">
-                            <i data-lucide="atom" class="w-6 h-6 text-emerald-500 mb-2"></i>
-                            <span class="text-slate-700 dark:text-slate-300">React</span>
-                        </div>
-                        <div class="tech-card reveal">
-                            <i data-lucide="server" class="w-6 h-6 text-emerald-500 mb-2"></i>
-                            <span class="text-slate-700 dark:text-slate-300">Node.js</span>
-                        </div>
-                        <div class="tech-card reveal">
-                            <i data-lucide="wind" class="w-6 h-6 text-emerald-500 mb-2"></i>
-                            <span class="text-slate-700 dark:text-slate-300">Tailwind</span>
-                        </div>
-                        <div class="tech-card reveal">
-                            <i data-lucide="file-json" class="w-6 h-6 text-emerald-500 mb-2"></i>
-                            <span class="text-slate-700 dark:text-slate-300">TypeScript</span>
-                        </div>
-                        <div class="tech-card reveal">
-                            <i data-lucide="layers" class="w-6 h-6 text-emerald-500 mb-2"></i>
-                            <span class="text-slate-700 dark:text-slate-300">Next.js</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative group">
-                    <div class="w-full aspect-square border-2 border-emerald-600 dark:border-emerald-500 rounded-lg absolute top-4 left-4 -z-10 group-hover:top-2 group-hover:left-2 transition-all"></div>
-                    <div id="about-carousel" class="w-full aspect-square bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 relative">
-                        <img src="assets/images/profile_1.webp" alt="Dipesh Parajuli" class="carousel-img active" loading="lazy">
-                        <img src="assets/images/profile_2.webp" alt="Dipesh Parajuli" class="carousel-img" loading="lazy">
-                    </div>
-                </div>
+          </div>
+          <div class="relative group">
+            <div
+              class="w-full aspect-square border-2 border-emerald-600 dark:border-emerald-500 rounded-lg absolute top-4 left-4 -z-10 group-hover:top-2 group-hover:left-2 transition-all"
+            ></div>
+            <div
+              id="about-carousel"
+              class="w-full aspect-square bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 relative"
+            >
+              <img
+                src="assets/images/profile_1.webp"
+                alt="Dipesh Parajuli"
+                class="carousel-img active"
+                loading="lazy"
+              />
+              <img
+                src="assets/images/profile_2.webp"
+                alt="Dipesh Parajuli"
+                class="carousel-img"
+                loading="lazy"
+              />
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="py-24">
-            <div class="flex items-center space-x-4 mb-12 reveal">
-                <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">02. Selected Work</h3>
-                <div class="h-[1px] bg-slate-200 dark:bg-slate-800 flex-grow"></div>
+      <!-- Projects Section -->
+      <section id="projects" class="py-24">
+        <div class="flex items-center space-x-4 mb-12 reveal">
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">
+            02. Selected Work
+          </h3>
+          <div class="h-[1px] bg-slate-200 dark:bg-slate-800 flex-grow"></div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 reveal-stagger">
+          <!-- Project Card 1 -->
+          <div
+            class="project-card bg-white dark:bg-[#111] p-8 rounded-lg group border border-slate-200 dark:border-slate-800 transition-all reveal"
+          >
+            <div class="flex justify-between items-center mb-6">
+              <i
+                data-lucide="folder"
+                class="w-10 h-10 text-emerald-600 dark:text-emerald-500"
+              ></i>
+              <div class="flex space-x-4 text-slate-400">
+                <a
+                  href="https://github.com/dipeshparajuli"
+                  target="_blank"
+                  class="hover:text-emerald-600 dark:hover:text-emerald-500"
+                  aria-label="View Code on GitHub"
+                  ><i data-lucide="github"></i
+                ></a>
+                <a
+                  href="#"
+                  target="_blank"
+                  class="hover:text-emerald-600 dark:hover:text-emerald-500"
+                  aria-label="View Live Demo"
+                  ><i data-lucide="external-link"></i
+                ></a>
+              </div>
             </div>
-            <div class="grid md:grid-cols-2 gap-8 reveal-stagger">
-                <!-- Project Card 1 -->
-                <div class="project-card bg-white dark:bg-[#111] p-8 rounded-lg group border border-slate-200 dark:border-slate-800 transition-all reveal">
-                    <div class="flex justify-between items-center mb-6">
-                        <i data-lucide="folder" class="w-10 h-10 text-emerald-600 dark:text-emerald-500"></i>
-                        <div class="flex space-x-4 text-slate-400">
-                            <a href="https://github.com/dipeshparajuli" target="_blank" class="hover:text-emerald-600 dark:hover:text-emerald-500" aria-label="View Code on GitHub"><i data-lucide="github"></i></a>
-                            <a href="#" target="_blank" class="hover:text-emerald-600 dark:hover:text-emerald-500" aria-label="View Live Demo"><i data-lucide="external-link"></i></a>
-                        </div>
-                    </div>
-                    <h4 class="text-xl font-bold text-slate-900 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-500 transition-colors mb-2">E-Commerce Platform</h4>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-6 font-light">
-                        A full-stack e-commerce solution with real-time inventory management and secure payments.
-                    </p>
-                    <div class="flex flex-wrap gap-3 font-mono text-xs text-slate-500 mb-6">
-                        <span>React</span>
-                        <span>Node.js</span>
-                        <span>Stripe</span>
-                    </div>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-500 hover:text-emerald-500 transition-colors nav-link-animated">Live Demo</a>
-                        <a href="#" class="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">View Code</a>
-                    </div>
-                </div>
-
-                <!-- Project Card 2 -->
-                <div class="project-card bg-white dark:bg-[#111] p-8 rounded-lg group border border-slate-200 dark:border-slate-800 transition-all reveal">
-                    <div class="flex justify-between items-center mb-6">
-                        <i data-lucide="folder" class="w-10 h-10 text-emerald-600 dark:text-emerald-500"></i>
-                        <div class="flex space-x-4 text-slate-400">
-                            <a href="https://github.com/dipeshparajuli" target="_blank" class="hover:text-emerald-600 dark:hover:text-emerald-500" aria-label="View Code on GitHub"><i data-lucide="github"></i></a>
-                            <a href="#" target="_blank" class="hover:text-emerald-600 dark:hover:text-emerald-500" aria-label="View Live Demo"><i data-lucide="external-link"></i></a>
-                        </div>
-                    </div>
-                    <h4 class="text-xl font-bold text-slate-900 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-500 transition-colors mb-2">AI Task Manager</h4>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-6 font-light">
-                        Task management app with smart prioritization using OpenAI GPT-4 for schedule optimizations.
-                    </p>
-                    <div class="flex flex-wrap gap-3 font-mono text-xs text-slate-500 mb-6">
-                        <span>Next.js</span>
-                        <span>OpenAI</span>
-                        <span>Tailwind</span>
-                    </div>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-500 hover:text-emerald-500 transition-colors nav-link-animated">Live Demo</a>
-                        <a href="#" class="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">View Code</a>
-                    </div>
-                </div>
+            <h4
+              class="text-xl font-bold text-slate-900 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-500 transition-colors mb-2"
+            >
+              E-Commerce Platform
+            </h4>
+            <p
+              class="text-sm text-slate-600 dark:text-slate-400 mb-6 font-light"
+            >
+              A full-stack e-commerce solution with real-time inventory
+              management and secure payments.
+            </p>
+            <div
+              class="flex flex-wrap gap-3 font-mono text-xs text-slate-500 mb-6"
+            >
+              <span>React</span>
+              <span>Node.js</span>
+              <span>Stripe</span>
             </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="py-24">
-            <div class="flex items-center space-x-4 mb-12 reveal">
-                <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">03. Professional Experience</h3>
-                <div class="h-[1px] bg-slate-200 dark:bg-slate-800 flex-grow"></div>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-500 hover:text-emerald-500 transition-colors nav-link-animated"
+                >Live Demo</a
+              >
+              <a
+                href="#"
+                class="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
+                >View Code</a
+              >
             </div>
-            
-            <div class="space-y-12 reveal-stagger">
-                <!-- Job 1 -->
-                <div class="flex flex-col md:flex-row md:space-x-8 reveal">
-                    <div class="mb-4 md:mb-0 md:w-32 flex-shrink-0">
-                        <span class="text-emerald-600 dark:text-emerald-500 font-mono text-sm">2022 — Present</span>
-                    </div>
-                    <div class="flex-grow">
-                        <h4 class="text-xl font-bold text-slate-900 dark:text-slate-100">Senior Frontend Engineer @ TechFlow</h4>
-                        <p class="text-sm text-slate-500 mb-4">San Francisco, CA</p>
-                        <ul class="space-y-3 text-slate-600 dark:text-slate-400 text-sm">
-                            <li class="flex items-start">
-                                <span class="text-emerald-600 dark:text-emerald-500 mr-3 mt-1 text-xs">▹</span>
-                                <span>Lead the frontend development of the core SaaS platform, improving performance by 40% through code splitting and memoization.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-emerald-600 dark:text-emerald-500 mr-3 mt-1 text-xs">▹</span>
-                                <span>Architected a shared component library used across 5 internal products, ensuring design consistency and reducing dev time.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-emerald-600 dark:text-emerald-500 mr-3 mt-1 text-xs">▹</span>
-                                <span>Mentor junior developers and conduct weekly technical design reviews for major feature releases.</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+          </div>
 
-                <!-- Job 2 -->
-                <div class="flex flex-col md:flex-row md:space-x-8 reveal">
-                    <div class="mb-4 md:mb-0 md:w-32 flex-shrink-0">
-                        <span class="text-emerald-600 dark:text-emerald-500 font-mono text-sm">2020 — 2022</span>
-                    </div>
-                    <div class="flex-grow">
-                        <h4 class="text-xl font-bold text-slate-900 dark:text-slate-100">Frontend Developer @ CreativeWave</h4>
-                        <p class="text-sm text-slate-500 mb-4">Remote</p>
-                        <ul class="space-y-3 text-slate-600 dark:text-slate-400 text-sm">
-                            <li class="flex items-start">
-                                <span class="text-emerald-600 dark:text-emerald-500 mr-3 mt-1 text-xs">▹</span>
-                                <span>Developed award-winning marketing sites for Fortune 500 clients using modern animation libraries like GSAP and Framer Motion.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-emerald-600 dark:text-emerald-500 mr-3 mt-1 text-xs">▹</span>
-                                <span>Collaborated closely with designers to bridge the gap between Figma mocks and pixel-perfect production code.</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+          <!-- Project Card 2 -->
+          <div
+            class="project-card bg-white dark:bg-[#111] p-8 rounded-lg group border border-slate-200 dark:border-slate-800 transition-all reveal"
+          >
+            <div class="flex justify-between items-center mb-6">
+              <i
+                data-lucide="folder"
+                class="w-10 h-10 text-emerald-600 dark:text-emerald-500"
+              ></i>
+              <div class="flex space-x-4 text-slate-400">
+                <a
+                  href="https://github.com/dipeshparajuli"
+                  target="_blank"
+                  class="hover:text-emerald-600 dark:hover:text-emerald-500"
+                  aria-label="View Code on GitHub"
+                  ><i data-lucide="github"></i
+                ></a>
+                <a
+                  href="#"
+                  target="_blank"
+                  class="hover:text-emerald-600 dark:hover:text-emerald-500"
+                  aria-label="View Live Demo"
+                  ><i data-lucide="external-link"></i
+                ></a>
+              </div>
             </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-32 max-w-2xl mx-auto reveal">
-            <div class="text-center mb-12">
-                <p class="text-emerald-600 dark:text-emerald-500 font-mono mb-4 text-sm uppercase tracking-widest">04. What's Next?</p>
-                <h3 class="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-6">Get In Touch</h3>
-                <p class="text-slate-600 dark:text-slate-400">
-                    I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
-                </p>
+            <h4
+              class="text-xl font-bold text-slate-900 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-500 transition-colors mb-2"
+            >
+              AI Task Manager
+            </h4>
+            <p
+              class="text-sm text-slate-600 dark:text-slate-400 mb-6 font-light"
+            >
+              Task management app with smart prioritization using OpenAI GPT-4
+              for schedule optimizations.
+            </p>
+            <div
+              class="flex flex-wrap gap-3 font-mono text-xs text-slate-500 mb-6"
+            >
+              <span>Next.js</span>
+              <span>OpenAI</span>
+              <span>Tailwind</span>
             </div>
-            
-            <!-- <form id="contact-form" class="space-y-6"> -->
-            <form id="contact-form" action="https://formspree.io/f/mqeygbyr" method="POST" class="space-y-6">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label for="name" class="block text-sm font-mono mb-2">Name</label>
-                        <input type="text" id="name" name="name" autocomplete="name" required class="w-full bg-slate-900 border border-slate-800 rounded-md px-4 py-3 text-slate-200 focus:outline-none focus:border-emerald-500 transition-colors">
-                    </div>
-                    <div>
-                        <label for="email" class="block text-sm font-mono mb-2">Email</label>
-                        <input type="email" id="email" name="email" autocomplete="email" required class="w-full bg-slate-900 border border-slate-800 rounded-md px-4 py-3 text-slate-200 focus:outline-none focus:border-emerald-500 transition-colors">
-                    </div>
-                </div>
-                <div>
-                    <label for="message" class="block text-sm font-mono mb-2">Message</label>
-                    <textarea id="message" name="message" rows="5" autocomplete="off" required class="w-full bg-slate-900 border border-slate-800 rounded-md px-4 py-3 text-slate-200 focus:outline-none focus:border-emerald-500 transition-colors"></textarea>
-                </div>
-                <div class="text-center">
-                    <button type="submit" id="submit-btn" class="px-10 py-4 border border-emerald-600 dark:border-emerald-500 text-emerald-600 dark:text-emerald-500 rounded-md hover:bg-emerald-500/10 transition-colors font-mono tracking-widest text-sm flex items-center justify-center space-x-2 mx-auto">
-                        <span id="btn-text">Send Message</span>
-                        <span id="btn-spinner" class="hidden">
-                            <svg class="animate-spin h-5 w-5 text-emerald-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                            </svg>
-                        </span>
-                    </button>
-                </div>
-            </form>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-500 hover:text-emerald-500 transition-colors nav-link-animated"
+                >Live Demo</a
+              >
+              <a
+                href="#"
+                class="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
+                >View Code</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
 
-        </section>
+      <!-- Experience Section -->
+      <section id="experience" class="py-24">
+        <div class="flex items-center space-x-4 mb-12 reveal">
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">
+            03. Professional Experience
+          </h3>
+          <div class="h-[1px] bg-slate-200 dark:bg-slate-800 flex-grow"></div>
+        </div>
+
+        <div class="space-y-12 reveal-stagger">
+          <!-- Job 1 -->
+          <div class="flex flex-col md:flex-row md:space-x-8 reveal">
+            <div class="mb-4 md:mb-0 md:w-32 flex-shrink-0">
+              <span
+                class="text-emerald-600 dark:text-emerald-500 font-mono text-sm"
+                >2022 — Present</span
+              >
+            </div>
+            <div class="flex-grow">
+              <h4 class="text-xl font-bold text-slate-900 dark:text-slate-100">
+                Senior Frontend Engineer @ TechFlow
+              </h4>
+              <p class="text-sm text-slate-500 mb-4">San Francisco, CA</p>
+              <ul class="space-y-3 text-slate-600 dark:text-slate-400 text-sm">
+                <li class="flex items-start">
+                  <span
+                    class="text-emerald-600 dark:text-emerald-500 mr-3 mt-1 text-xs"
+                    >▹</span
+                  >
+                  <span
+                    >Lead the frontend development of the core SaaS platform,
+                    improving performance by 40% through code splitting and
+                    memoization.</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="text-emerald-600 dark:text-emerald-500 mr-3 mt-1 text-xs"
+                    >▹</span
+                  >
+                  <span
+                    >Architected a shared component library used across 5
+                    internal products, ensuring design consistency and reducing
+                    dev time.</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="text-emerald-600 dark:text-emerald-500 mr-3 mt-1 text-xs"
+                    >▹</span
+                  >
+                  <span
+                    >Mentor junior developers and conduct weekly technical
+                    design reviews for major feature releases.</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Job 2 -->
+          <div class="flex flex-col md:flex-row md:space-x-8 reveal">
+            <div class="mb-4 md:mb-0 md:w-32 flex-shrink-0">
+              <span
+                class="text-emerald-600 dark:text-emerald-500 font-mono text-sm"
+                >2020 — 2022</span
+              >
+            </div>
+            <div class="flex-grow">
+              <h4 class="text-xl font-bold text-slate-900 dark:text-slate-100">
+                Frontend Developer @ CreativeWave
+              </h4>
+              <p class="text-sm text-slate-500 mb-4">Remote</p>
+              <ul class="space-y-3 text-slate-600 dark:text-slate-400 text-sm">
+                <li class="flex items-start">
+                  <span
+                    class="text-emerald-600 dark:text-emerald-500 mr-3 mt-1 text-xs"
+                    >▹</span
+                  >
+                  <span
+                    >Developed award-winning marketing sites for Fortune 500
+                    clients using modern animation libraries like GSAP and
+                    Framer Motion.</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="text-emerald-600 dark:text-emerald-500 mr-3 mt-1 text-xs"
+                    >▹</span
+                  >
+                  <span
+                    >Collaborated closely with designers to bridge the gap
+                    between Figma mocks and pixel-perfect production code.</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-32 max-w-2xl mx-auto reveal">
+        <div class="text-center mb-12">
+          <p
+            class="text-emerald-600 dark:text-emerald-500 font-mono mb-4 text-sm uppercase tracking-widest"
+          >
+            04. What's Next?
+          </p>
+          <h3
+            class="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-6"
+          >
+            Get In Touch
+          </h3>
+          <p class="text-slate-600 dark:text-slate-400">
+            I'm currently looking for new opportunities. Whether you have a
+            question or just want to say hi, I'll try my best to get back to
+            you!
+          </p>
+        </div>
+
+        <!-- <form id="contact-form" class="space-y-6"> -->
+        <form
+          id="contact-form"
+          action="https://formspree.io/f/mqeygbyr"
+          method="POST"
+          class="space-y-6"
+        >
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-sm font-mono mb-2"
+                >Name</label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                autocomplete="name"
+                required
+                class="w-full bg-slate-900 border border-slate-800 rounded-md px-4 py-3 text-slate-200 focus:outline-none focus:border-emerald-500 transition-colors"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-mono mb-2"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                required
+                class="w-full bg-slate-900 border border-slate-800 rounded-md px-4 py-3 text-slate-200 focus:outline-none focus:border-emerald-500 transition-colors"
+              />
+            </div>
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-mono mb-2"
+              >Message</label
+            >
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              autocomplete="off"
+              required
+              class="w-full bg-slate-900 border border-slate-800 rounded-md px-4 py-3 text-slate-200 focus:outline-none focus:border-emerald-500 transition-colors"
+            ></textarea>
+          </div>
+          <div class="text-center">
+            <button
+              type="submit"
+              id="submit-btn"
+              class="px-10 py-4 border border-emerald-600 dark:border-emerald-500 text-emerald-600 dark:text-emerald-500 rounded-md hover:bg-emerald-500/10 transition-colors font-mono tracking-widest text-sm flex items-center justify-center space-x-2 mx-auto"
+            >
+              <span id="btn-text">Send Message</span>
+              <span id="btn-spinner" class="hidden">
+                <svg
+                  class="animate-spin h-5 w-5 text-emerald-500"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    class="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    stroke-width="4"
+                  ></circle>
+                  <path
+                    class="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  ></path>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </form>
+      </section>
     </main>
 
     <!-- Back to Top Button ('RETURN') -->
-    <a href="#hero" id="back-to-top" class="font-mono text-[12px] tracking-[0.2em] font-bold" aria-label="Back to top">
-        RETURN 0;
+    <a
+      href="#hero"
+      id="back-to-top"
+      class="font-mono text-[12px] tracking-[0.2em] font-bold"
+      aria-label="Back to top"
+    >
+      RETURN 0;
     </a>
 
     <!-- Footer -->
-    <footer class="bg-slate-50 dark:bg-[#050505] pt-24 pb-12 border-t border-slate-200 dark:border-white/5 px-6">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 items-start text-center md:text-left">
-            <!-- Left: Brand Info -->
-            <div class="space-y-4">
-                <h4 class="text-slate-900 dark:text-slate-100 font-bold tracking-tight text-xl">Dipesh Parajuli</h4>
-                <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-xs mx-auto md:mx-0">
-                    Compiling a digital time capsule. Translating raw experiences into a cleaner architecture, documenting the journey from <span class="tech-log">$v1.0$</span> to today.
-                </p>
-            </div>
-
-            <!-- Center: Navigation -->
-            <div class="flex flex-col space-y-4 items-center">
-                <span class="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-600 mb-2">Navigation</span>
-                <nav class="flex flex-col space-y-2 text-sm text-slate-600 dark:text-slate-400 font-medium">
-                    <a href="#about" class="hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors">About Me</a>
-                    <a href="#projects" class="hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors">Project Gallery</a>
-                    <a href="#experience" class="hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors">Experience</a>
-                    <a href="#contact" class="hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors">Get In Touch</a>
-                </nav>
-            </div>
-
-            <!-- Right: Social Connections -->
-            <div class="flex flex-col items-center md:items-end space-y-4">
-                <span class="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-600">Connect</span>
-                <div class="flex space-x-6">
-                    <a id="gh-link" class="text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors" aria-label="GitHub Profile">
-                        <i data-lucide="github" class="w-6 h-6"></i>
-                    </a>
-                    <a data-url="https://www.linkedin.com/in/dipesh-parajuli-dp/" class="text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors" aria-label="LinkedIn Profile">
-                        <i data-lucide="linkedin" class="w-6 h-6"></i>
-                    </a>
-                    <a data-url="https://www.facebook.com/scorpdipesh" class="text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors" aria-label="Facebook Profile">
-                        <i data-lucide="facebook" class="w-6 h-6"></i>
-                    </a>
-                </div>
-                <!-- Contact Info below Socials -->
-                <div class="footer-contact-info flex flex-col items-center md:items-end space-y-2 mt-4 text-sm font-mono text-slate-500 dark:text-slate-400 uppercase tracking-widest">
-                    <a href="tel:9843812362" class="hover:text-emerald-500 transition-colors">+977 9843812362</a>
-                    <div class="relative group">
-                        <a href="#" class="email-link hover:text-emerald-500 transition-colors" data-user="scorpdipesh" data-domain="gmail.com">Copy Email</a>
-                    </div>
-                </div>
-                <div class="text-[10px] font-mono text-slate-700 dark:text-slate-500 uppercase tracking-widest mt-4">
-                    &copy; 2026 • Based in Nepal
-                </div>
-            </div>
+    <footer
+      class="bg-slate-50 dark:bg-[#050505] pt-24 pb-12 border-t border-slate-200 dark:border-white/5 px-6"
+    >
+      <div
+        class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 items-start text-center md:text-left"
+      >
+        <!-- Left: Brand Info -->
+        <div class="space-y-4">
+          <h4
+            class="text-slate-900 dark:text-slate-100 font-bold tracking-tight text-xl"
+          >
+            Dipesh Parajuli
+          </h4>
+          <p
+            class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-xs mx-auto md:mx-0"
+          >
+            Compiling a digital time capsule. Translating raw experiences into a
+            cleaner architecture, documenting the journey from
+            <span class="tech-log">$v1.0$</span> to today.
+          </p>
         </div>
-        
-        <!-- Bottom Bar -->
-        <div class="max-w-6xl mx-auto mt-16 pt-8 border-t border-slate-200 dark:border-white/5 text-center flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-[10px] font-mono text-slate-700 dark:text-slate-500 uppercase tracking-[0.3em]">
-            <p>
-                Crafted with precision & passion
-            </p>
-            <a href="privacy.html" class="hover:text-emerald-500 transition-colors nav-link-animated">Privacy Policy</a>
+
+        <!-- Center: Navigation -->
+        <div class="flex flex-col space-y-4 items-center">
+          <span
+            class="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-600 mb-2"
+            >Navigation</span
+          >
+          <nav
+            class="flex flex-col space-y-2 text-sm text-slate-600 dark:text-slate-400 font-medium"
+          >
+            <a
+              href="#about"
+              class="hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors"
+              >About Me</a
+            >
+            <a
+              href="#projects"
+              class="hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors"
+              >Project Gallery</a
+            >
+            <a
+              href="#experience"
+              class="hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors"
+              >Experience</a
+            >
+            <a
+              href="#contact"
+              class="hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors"
+              >Get In Touch</a
+            >
+          </nav>
         </div>
+
+        <!-- Right: Social Connections -->
+        <div class="flex flex-col items-center md:items-end space-y-4">
+          <span
+            class="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-600"
+            >Connect</span
+          >
+          <div class="flex space-x-6">
+            <a
+              id="gh-link"
+              class="text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors"
+              aria-label="GitHub Profile"
+            >
+              <i data-lucide="github" class="w-6 h-6"></i>
+            </a>
+            <a
+              data-url="https://www.linkedin.com/in/dipesh-parajuli-dp/"
+              class="text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors"
+              aria-label="LinkedIn Profile"
+            >
+              <i data-lucide="linkedin" class="w-6 h-6"></i>
+            </a>
+            <a
+              data-url="https://www.facebook.com/scorpdipesh"
+              class="text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors"
+              aria-label="Facebook Profile"
+            >
+              <i data-lucide="facebook" class="w-6 h-6"></i>
+            </a>
+          </div>
+          <!-- Contact Info below Socials -->
+          <div
+            class="footer-contact-info flex flex-col items-center md:items-end space-y-2 mt-4 text-sm font-mono text-slate-500 dark:text-slate-400 uppercase tracking-widest"
+          >
+            <a
+              href="tel:9843812362"
+              class="hover:text-emerald-500 transition-colors"
+              >+977 9843812362</a
+            >
+            <div class="relative group">
+              <a
+                href="#"
+                class="email-link hover:text-emerald-500 transition-colors"
+                data-user="scorpdipesh"
+                data-domain="gmail.com"
+                >Copy Email</a
+              >
+            </div>
+          </div>
+          <div
+            class="text-[10px] font-mono text-slate-700 dark:text-slate-500 uppercase tracking-widest mt-4"
+          >
+            &copy; 2026 • Based in Nepal
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div
+        class="max-w-6xl mx-auto mt-16 pt-8 border-t border-slate-200 dark:border-white/5 text-center flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-[10px] font-mono text-slate-700 dark:text-slate-500 uppercase tracking-[0.3em]"
+      >
+        <p>Crafted with precision & passion</p>
+        <a
+          href="privacy.html"
+          class="hover:text-emerald-500 transition-colors nav-link-animated"
+          >Privacy Policy</a
+        >
+      </div>
     </footer>
 
     <!-- Toaster Notification -->
-    <div id="toaster" role="alert" aria-live="polite" class="fixed top-8 right-8 z-[9999] transform translate-x-20 opacity-0 transition-opacity duration-500 ease-out pointer-events-none">
-        <div class="bg-slate-900/90 border border-emerald-500 backdrop-blur-lg rounded-lg p-5 shadow-2xl flex items-center space-x-4 max-w-sm relative overflow-hidden">
-            <div id="toaster-message" class="text-sm font-mono text-slate-100 flex-grow pr-8"></div>
-            <button id="close-toaster" class="absolute top-2 right-2 w-6 h-6 flex items-center justify-center rounded-full bg-emerald-500/10 border border-emerald-500/20 text-slate-500 hover:text-emerald-400 hover:bg-emerald-500/20 hover:border-emerald-500 transition-all text-sm leading-none" aria-label="Close notification">&times;</button>
-            <!-- Progress Bar -->
-            <div id="toaster-progress" class="absolute bottom-0 left-0 h-[2px] bg-emerald-500 w-full origin-left"></div>
-        </div>
+    <div
+      id="toaster"
+      role="alert"
+      aria-live="polite"
+      class="fixed top-8 right-8 z-[9999] transform translate-x-20 opacity-0 transition-opacity duration-500 ease-out pointer-events-none"
+    >
+      <div
+        class="bg-slate-900/90 border border-emerald-500 backdrop-blur-lg rounded-lg p-5 shadow-2xl flex items-center space-x-4 max-w-sm relative overflow-hidden"
+      >
+        <div
+          id="toaster-message"
+          class="text-sm font-mono text-slate-100 flex-grow pr-8"
+        ></div>
+        <button
+          id="close-toaster"
+          class="absolute top-2 right-2 w-6 h-6 flex items-center justify-center rounded-full bg-emerald-500/10 border border-emerald-500/20 text-slate-500 hover:text-emerald-400 hover:bg-emerald-500/20 hover:border-emerald-500 transition-all text-sm leading-none"
+          aria-label="Close notification"
+        >
+          &times;
+        </button>
+        <!-- Progress Bar -->
+        <div
+          id="toaster-progress"
+          class="absolute bottom-0 left-0 h-[2px] bg-emerald-500 w-full origin-left"
+        ></div>
+      </div>
     </div>
 
     <script src="js/script.js"></script>
     <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
+      // Initialize Lucide Icons
+      lucide.createIcons();
     </script>
-</body>
+  </body>
 </html>
